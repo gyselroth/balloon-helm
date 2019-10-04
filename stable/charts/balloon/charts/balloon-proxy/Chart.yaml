@@ -1,0 +1,14 @@
+apiVersion: v2
+name: balloon-proxy
+description: balloon web user interface
+type: application
+version: 0.1.0
+appVersion: 3.2.8
+keywords:
+- balloon
+home: https://github.com/gyselroth/balloon-client-web
+sources:
+- https://github.com/gyselroth/balloon-helm
+maintainers:
+- name: Raffael Sahli
+  email: sahli@gyselroth.com

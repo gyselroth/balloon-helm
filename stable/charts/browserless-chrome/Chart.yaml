@@ -1,0 +1,5 @@
+apiVersion: v1
+appVersion: "1.17.0"
+description: Chrome-as-a-service on your own hardware or in the cloud
+name: browserless-chrome
+version: 0.1.0
