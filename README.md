@@ -31,9 +31,22 @@ which also applies to the optional elasticsearch integration.
 
 To install the chart with the release name `my-release`:
 
-``` console
+```console
 helm repo add balloon https://gyselroth.github.io/balloon-helm/stable
 helm install balloon/balloon --name my-release --namespace mynamespace
+```
+
+Example deployment with ingress/tls enabled:
+
+```console
+helm install balloon/balloon --name my-release --namespace mynamespace \
+    --set balloon-proxy.ingress.enabled=true \ 
+    --set balloon-web.ingress.enabled=true \ 
+    --set balloon-proxy.ingress.host=balloon.local \
+    --set balloon-web.ingress.host=balloon.local \
+    --set balloon-web.ingress.tls[0].secretName=tls-balloon.local \
+    --set balloon-proxy.ingress.tls[0].secretName=tls-balloon.local \
+    --set balloon.url=https://balloon.local
 ```
 
 ## Configuration
