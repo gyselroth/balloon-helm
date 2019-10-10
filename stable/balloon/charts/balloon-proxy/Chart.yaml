@@ -1,12 +1,12 @@
 apiVersion: v2
 name: balloon-proxy
-description: balloon web user interface
+description: Nginx proxy for balloon php-fpm
 type: application
-version: 0.1.0
+version: 0.2.0
 appVersion: 3.2.8
 keywords:
 - balloon
-home: https://github.com/gyselroth/balloon-client-web
+home: https://github.com/gyselroth/balloon
 sources:
 - https://github.com/gyselroth/balloon-helm
 maintainers:

@@ -17,7 +17,7 @@ data:
 
         location ~ ^/index.php {
             root /usr/share/balloon/bin/httpdocs;
-            fastcgi_pass {{ .Release.Name }}-{{ .Values.balloon.service.name }}:{{ .Values.balloon.service.port }};
+            fastcgi_pass {{ .Values.balloon.service.name }}:{{ .Values.balloon.service.port }};
             fastcgi_param SCRIPT_FILENAME /usr/share/balloon/bin/httpdocs$fastcgi_script_name;
             fastcgi_param PATH_INFO $fastcgi_script_name;
             include /etc/nginx/fastcgi_params;
