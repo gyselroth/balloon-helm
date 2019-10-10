@@ -3,10 +3,10 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: 2019-10-10T11:51:56.02403193+02:00
+    created: 2019-10-10T16:02:28.093829752+02:00
     description: High performance, feature rich document management system written
       for the cloud
-    digest: ead37519453d0451d79118e57ab2bb0ca5643d543ac5f8c16b0ee3ce2681065a
+    digest: 594009acf84d4758d6bb4d8cec6115665acf54760261e83116ffe516c1d12309
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -17,104 +17,6 @@ entries:
     sources:
     - https://github.com/gyselroth/balloon-helm
     urls:
-    - charts/balloon-0.1.0.tgz
-    version: 0.1.0
-  browserless-chrome:
-  - apiVersion: v1
-    appVersion: 1.17.0
-    created: 2019-10-10T11:51:56.02459026+02:00
-    description: Chrome-as-a-service on your own hardware or in the cloud
-    digest: 13893a981641590245063b550ebaf71d01d5d43006476d735ab924d75d353738
-    name: browserless-chrome
-    urls:
-    - charts/browserless-chrome-0.1.0.tgz
-    version: 0.1.0
-  clamav:
-  - apiVersion: v1
-    appVersion: "1.6"
-    created: 2019-10-10T11:51:56.025088196+02:00
-    description: An Open-Source antivirus engine for detecting trojans, viruses, malware
-      & other malicious threats.
-    digest: 2a1f013dbb8313927700978ffc38ea88409cb6245d4866521b420e82bb228512
-    home: https://www.clamav.net
-    icon: https://www.clamav.net/assets/clamav-trademark.png
-    maintainers:
-    - email: zakkg3@gmail.com
-      name: zakkg3
-    name: clamav
-    urls:
-    - charts/clamav-1.0.3.tgz
-    version: 1.0.3
-  collabora-code:
-  - apiVersion: v1
-    appVersion: 4.0.3.1
-    created: 2019-10-10T11:51:56.025755017+02:00
-    description: A Helm chart for Collabora Office - CODE-Edition
-    digest: d34fa29eed5dc3edba4cc0bb79b3e075ac24790bdbea18ee4048a845ab1910ab
-    home: https://www.collaboraoffice.com/code/
-    icon: https://avatars0.githubusercontent.com/u/22418908?s=200&v=4
-    maintainers:
-    - email: christian.ingenhaag@googlemail.com
-      name: Christian
-    name: collabora-code
-    sources:
-    - https://github.com/CollaboraOnline/Docker-CODE
-    urls:
-    - charts/collabora-code-1.0.5.tgz
-    version: 1.0.5
-  elasticsearch:
-  - apiVersion: v1
-    appVersion: 6.8.2
-    created: 2019-10-10T11:51:56.028052556+02:00
-    description: Flexible and powerful open source, distributed real-time search and
-      analytics engine.
-    digest: 2191fd8c237cde4303c1fc55e5c32d818846b22e92c08e243a2f0d22f4c3b8d0
-    home: https://www.elastic.co/products/elasticsearch
-    icon: https://static-www.elastic.co/assets/blteb1c97719574938d/logo-elastic-elasticsearch-lt.svg
-    maintainers:
-    - email: christian@jetstack.io
-      name: simonswine
-    - email: michael.haselton@gmail.com
-      name: icereval
-    - email: pete.brown@powerhrg.com
-      name: rendhalver
-    - email: cedric@desaintmartin.fr
-      name: desaintmartin
-    - email: goonohc@gmail.com
-      name: KongZ
-    - email: hfernandez@mesosphere.com
-      name: hectorj2f
-    name: elasticsearch
-    sources:
-    - https://www.elastic.co/products/elasticsearch
-    - https://github.com/jetstack/elasticsearch-pet
-    - https://github.com/giantswarm/kubernetes-elastic-stack
-    - https://github.com/GoogleCloudPlatform/elasticsearch-docker
-    - https://github.com/clockworksoul/helm-elasticsearch
-    - https://github.com/pires/kubernetes-elasticsearch-cluster
-    urls:
-    - charts/elasticsearch-1.31.1.tgz
-    version: 1.31.1
-  mongodb-replicaset:
-  - apiVersion: v1
-    appVersion: "3.6"
-    created: 2019-10-10T11:51:56.029026934+02:00
-    description: NoSQL document-oriented database that stores JSON-like documents
-      with dynamic schemas, simplifying the integration of data in content-driven
-      applications.
-    digest: 8e521d93e436d411a80243c51a01b0adcd46a240816afa93dee53b07c235200e
-    home: https://github.com/mongodb/mongo
-    icon: https://webassets.mongodb.com/_com_assets/cms/mongodb-logo-rgb-j6w271g1xn.jpg
-    maintainers:
-    - email: unguiculus@gmail.com
-      name: unguiculus
-    - email: ssheehy@firescope.com
-      name: steven-sheehy
-    name: mongodb-replicaset
-    sources:
-    - https://github.com/mongodb/mongo
-    - https://github.com/percona/mongodb_exporter
-    urls:
-    - charts/mongodb-replicaset-3.10.1.tgz
-    version: 3.10.1
-generated: 2019-10-10T11:51:56.020305949+02:00
+    - balloon/balloon-0.2.0.tgz
+    version: 0.2.0
+generated: 2019-10-10T16:02:28.087904504+02:00
