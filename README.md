@@ -32,8 +32,8 @@ which also applies to the optional elasticsearch integration.
 To install the chart with the release name `my-release`:
 
 ``` console
-helm repo add stable https://gyselroth.github.io/balloon-helm
-helm install --name my-release stable/balloon
+helm repo add balloon https://gyselroth.github.io/balloon-helm/stable
+helm install balloon/balloon --name my-release --namespace mynamespace
 ```
 
 ## Configuration
