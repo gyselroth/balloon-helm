@@ -49,6 +49,11 @@ helm install balloon/balloon --name my-release --namespace mynamespace \
     --set balloon.url=https://balloon.local
 ```
 
+The balloon should now be installed and available. You may authenticate using the default admin user:
+
+Username: admin<br/>
+Password: admin<br/>
+
 ## Configuration
 
 The following table lists the configurable parameters of the balloon sub charts and their default values.

@@ -2,7 +2,7 @@ apiVersion: v2
 name: balloon
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: master
 keywords:
 - balloon

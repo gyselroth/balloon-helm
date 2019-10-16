@@ -3,10 +3,28 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: 2019-10-10T16:02:28.093829752+02:00
+    created: 2019-10-16T09:47:36.542176539+02:00
     description: High performance, feature rich document management system written
       for the cloud
-    digest: 594009acf84d4758d6bb4d8cec6115665acf54760261e83116ffe516c1d12309
+    digest: fd2c584da798f6fa49dfb395c01c87434ac9f0efaa074222056b490ace9c3408
+    home: https://github.com/gyselroth/balloon
+    keywords:
+    - balloon
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: balloon
+    sources:
+    - https://github.com/gyselroth/balloon-helm
+    urls:
+    - balloon/balloon-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: master
+    created: 2019-10-16T09:47:36.527311708+02:00
+    description: High performance, feature rich document management system written
+      for the cloud
+    digest: 2bfa3e8a5da02f8b6412a815018435a82b97171be974c5109da8731cfaebe7f7
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -19,4 +37,4 @@ entries:
     urls:
     - balloon/balloon-0.2.0.tgz
     version: 0.2.0
-generated: 2019-10-10T16:02:28.087904504+02:00
+generated: 2019-10-16T09:47:36.507575774+02:00
