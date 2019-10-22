@@ -78,3 +78,18 @@ The following table lists the configurable parameters of the balloon sub charts 
 | `balloon.tolerations`               | Tolerations                                                               | `[]`                                                |
 | `balloon.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
 | `balloon.affinity`                  | Affinitiy                                                                 | `{}`                                                |
+
+
+## Release new charts
+
+Upgrade the sub charts first which have changes.
+
+Pack chart and update dependencies:
+```
+helm package -u -d stable/balloon/ stable/balloon/
+```
+
+Update repository index:
+```
+helm repo index stable/
+```
