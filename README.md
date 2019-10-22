@@ -40,8 +40,8 @@ Example deployment with ingress/tls enabled:
 
 ```console
 helm install balloon/balloon --name my-release --namespace mynamespace \
-    --set balloon-proxy.ingress.enabled=true \ 
-    --set balloon-web.ingress.enabled=true \ 
+    --set balloon-proxy.ingress.enabled=true \
+    --set balloon-web.ingress.enabled=true \
     --set balloon-proxy.ingress.host=balloon.local \
     --set balloon-web.ingress.host=balloon.local \
     --set balloon-web.ingress.tls[0].secretName=tls-balloon.local \
@@ -68,7 +68,7 @@ The following table lists the configurable parameters of the balloon sub charts 
 | `balloon.nameOverride`              | Override deployment name                                                  | `""`                                                |
 | `balloon.url`                       | The URL of balloon under which the server is reachable from outside       | `https://balloon.local`                             |
 | `balloon.image.repository`          | Image repository and name                                                 | `gyselroth/balloon`                                 |
-| `balloon.image.tag`                 | Image tag for the install container                                       | `2.6.6`                                             |
+| `balloon.image.tag`                 | Image tag for the install container                                       | `2.6.7`                                             |
 | `balloon.image.pullPolicy`          | Image pull policy for the init container that establishes the replica set | `IfNotPresent`                                      |
 | `balloon.service.type`              | Service Type                                                              | `ClusterIP`                                         |
 | `balloon.service.port`              | Service Port (balloon < v3 is executed using PHP-FPM)                     | `9000`                                              |

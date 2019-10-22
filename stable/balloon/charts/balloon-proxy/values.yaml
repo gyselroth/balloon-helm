@@ -17,6 +17,9 @@ balloon:
     name: balloon
     port: 9000
 
+nginx:
+  fastcgi_read_timeout: 300
+
 service:
   type: ClusterIP
   port: 80
