@@ -87,7 +87,7 @@ Upgrade the sub charts first which have changes.
 
 Pack chart and update dependencies:
 ```
-helm package -u -d stable/balloon/ stable/balloon/
+helm package -u -d stable/balloon/ stable/
 ```
 
 Update repository index:
