@@ -36,7 +36,7 @@ helm repo add balloon https://gyselroth.github.io/balloon-helm/stable
 helm install balloon/balloon --name my-release --namespace mynamespace
 ```
 
-Example deployment with ingress/tls enabled and 200GB MongoDB storage:
+Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch storage:
 
 ```console
 helm install balloon/balloon --name my-release --namespace mynamespace \
@@ -47,7 +47,9 @@ helm install balloon/balloon --name my-release --namespace mynamespace \
     --set balloon-web.ingress.tls[0].secretName=tls-balloon.local \
     --set balloon-proxy.ingress.tls[0].secretName=tls-balloon.local \
     --set balloon.url=https://balloon.local \
-    --set mongodb.persistentVolume.size=200Gi
+    --set mongodb.persistentVolume.size=200Gi \
+    --set elasticsearch.data.persistence.size=75Gi \
+    --set elasticsearch.data.replicas=3
 ```
 
 The balloon should now be installed and available. You may authenticate using the default admin user:
