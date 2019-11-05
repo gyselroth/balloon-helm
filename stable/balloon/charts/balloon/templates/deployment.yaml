@@ -51,8 +51,16 @@ spec:
             - name: php-fpm
               containerPort: 9000
               protocol: TCP
+          volumeMounts:
+          - mountPath: /etc/balloon
+            name: config-volume
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: {{ .Release.Name }}-balloon-config
+        name: config-volume            
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
