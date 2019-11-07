@@ -41,8 +41,18 @@ spec:
             httpGet:
               path: /
               port: http
+              
+          volumeMounts:
+          - mountPath: /usr/share/nginx/html/config.json
+            name: config-volume
+            subPath: config.json
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: {{ .Release.Name }}-balloon-web-config
+        name: config-volume            
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
