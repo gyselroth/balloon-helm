@@ -15,6 +15,8 @@ browserless-chrome:
   enabled: true
 
 lool-collab:
+  collabora:
+    extra_params: --o:ssl.termination=true --o:ssl.enable=false --o:net.post_allow.host[0]=::ffff:10.[0-9]+.[0-9]+.[0-9]+ --o:storage.wopi.host[2]=::ffff:10.[0-9]+.[0-9]+.[0-9]+
   livenessProbe:
     initialDelaySeconds: 120
 

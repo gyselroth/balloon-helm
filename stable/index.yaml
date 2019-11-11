@@ -1,12 +1,12 @@
 apiVersion: v1
 entries:
   balloon:
-  - apiVersion: v2
+  - apiVersion: v1
     appVersion: master
-    created: 2019-11-05T10:50:33.23416121+01:00
+    created: "2019-11-11T09:31:45.583324403+01:00"
     description: High performance, feature rich document management system written
       for the cloud
-    digest: ea71955b41f1e8c5d89c952bba3e652c000220499a2d757d697b473dde479bd2
+    digest: 5e22c8afb8f1be5a742b5f67178f610bf16d71cf2165208f70f4f834491cc65f
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -19,58 +19,4 @@ entries:
     urls:
     - balloon-0.2.3.tgz
     version: 0.2.3
-  - apiVersion: v2
-    appVersion: master
-    created: 2019-11-05T10:50:33.230931972+01:00
-    description: High performance, feature rich document management system written
-      for the cloud
-    digest: f1cf783ffa8500c6684bd787b5e0cf328fc068b1225eaa3a8f0ef7dbc1249944
-    home: https://github.com/gyselroth/balloon
-    keywords:
-    - balloon
-    maintainers:
-    - email: sahli@gyselroth.com
-      name: Raffael Sahli
-    name: balloon
-    sources:
-    - https://github.com/gyselroth/balloon-helm
-    urls:
-    - balloon-0.2.2.tgz
-    version: 0.2.2
-  - apiVersion: v2
-    appVersion: master
-    created: 2019-11-05T10:50:33.22800188+01:00
-    description: High performance, feature rich document management system written
-      for the cloud
-    digest: 5a67ee664677fc31fc65b8b89fadbe5720a6fce8a5b722923f4ebf1ed93906da
-    home: https://github.com/gyselroth/balloon
-    keywords:
-    - balloon
-    maintainers:
-    - email: sahli@gyselroth.com
-      name: Raffael Sahli
-    name: balloon
-    sources:
-    - https://github.com/gyselroth/balloon-helm
-    urls:
-    - balloon-0.2.1.tgz
-    version: 0.2.1
-  - apiVersion: v2
-    appVersion: master
-    created: 2019-11-05T10:50:33.222944963+01:00
-    description: High performance, feature rich document management system written
-      for the cloud
-    digest: 2bfa3e8a5da02f8b6412a815018435a82b97171be974c5109da8731cfaebe7f7
-    home: https://github.com/gyselroth/balloon
-    keywords:
-    - balloon
-    maintainers:
-    - email: sahli@gyselroth.com
-      name: Raffael Sahli
-    name: balloon
-    sources:
-    - https://github.com/gyselroth/balloon-helm
-    urls:
-    - balloon-0.2.0.tgz
-    version: 0.2.0
-generated: 2019-11-05T10:50:33.217906864+01:00
+generated: "2019-11-11T09:31:45.569856846+01:00"
