@@ -3,10 +3,10 @@ entries:
   balloon:
   - apiVersion: v1
     appVersion: master
-    created: "2019-11-11T09:56:29.838858597+01:00"
+    created: "2019-11-13T11:26:24.882936942+01:00"
     description: High performance, feature rich document management system written
       for the cloud
-    digest: 23ddc9e122ec1727f4336bfd6790014d6a41973182b45fc9ccc57adb7873ca1a
+    digest: 22e3b529fce3c7be1707bb39779c5ebd99ff4807b5964ff966e8dca28cf069df
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -19,4 +19,4 @@ entries:
     urls:
     - balloon-0.2.3.tgz
     version: 0.2.3
-generated: "2019-11-11T09:56:29.82837605+01:00"
+generated: "2019-11-13T11:26:24.860169348+01:00"
