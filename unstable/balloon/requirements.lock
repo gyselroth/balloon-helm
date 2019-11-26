@@ -1,0 +1,18 @@
+dependencies:
+- name: mongodb-replicaset
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 3.10.1
+- name: elasticsearch
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.31.1
+- name: clamav
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.0.3
+- name: collabora-code
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.0.5
+- name: collabora-code
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.0.5
+digest: sha256:41fef8f691264be8ce7c2fea30ddefcccb628c7787203d267c2c60b3ba8ed81e
+generated: 2019-10-02T16:25:39.599248344+02:00

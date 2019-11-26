@@ -32,14 +32,14 @@ which also applies to the optional elasticsearch integration.
 To install the chart with the release name `my-release`:
 
 ```console
-helm repo add balloon https://gyselroth.github.io/balloon-helm/stable
-helm install balloon/balloon --name my-release --namespace mynamespace
+helm repo add balloon-stable https://gyselroth.github.io/balloon-helm/stable
+helm install balloon-stable/balloon --name my-release --namespace mynamespace
 ```
 
 Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch storage:
 
 ```console
-helm install balloon/balloon --name my-release --namespace mynamespace \
+helm install balloon-stable/balloon --name my-release --namespace mynamespace \
     --set balloon-proxy.ingress.enabled=true \
     --set balloon-web.ingress.enabled=true \
     --set balloon-proxy.ingress.host=balloon.local \
@@ -82,6 +82,18 @@ The following table lists the configurable parameters of the balloon sub charts 
 | `balloon.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
 | `balloon.affinity`                  | Affinitiy                                                                 | `{}`                                                |
 
+
+## Installing pre releases
+
+Besides the stable repository there is a repository which holds unstable balloon charts. 
+Unstable charts also include all balloon pre-releases (Usually alpha and beta versions).
+
+To install an unstable chart with the release name `my-release`:
+
+```console
+helm repo add balloon-unstable https://gyselroth.github.io/balloon-helm/unstable
+helm install balloon-unstable/balloon --name my-release --namespace mynamespace
+```
 
 ## Release new charts
 

@@ -1,0 +1,24 @@
+dependencies:
+- name: mongodb-replicaset
+  version: 3.10.1
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: mongodb.install
+  alias: mongodb
+- name: elasticsearch
+  version: 1.31.1
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: elasticsearch.enabled
+- name: clamav
+  version: 1.0.3
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: clamav.enabled
+- name: collabora-code
+  version: 1.0.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: ballon.preview.enabled
+  alias: lool-convert
+- name: collabora-code
+  version: 1.0.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: libreoffice.enabled
+  alias: lool-collab
