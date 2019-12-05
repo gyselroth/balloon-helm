@@ -3,7 +3,25 @@ entries:
   balloon:
   - apiVersion: v1
     appVersion: master
-    created: "2019-12-04T16:02:54.096706582+01:00"
+    created: "2019-12-05T15:37:06.698123653+01:00"
+    description: High performance, feature rich document management system written
+      for the cloud
+    digest: 7c46f7931b910c8ebc69d1e6f58265f974035f8a4da9336de8dd38051bb29d7a
+    home: https://github.com/gyselroth/balloon
+    keywords:
+    - balloon
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: balloon
+    sources:
+    - https://github.com/gyselroth/balloon-helm
+    urls:
+    - balloon-0.2.6.tgz
+    version: 0.2.6
+  - apiVersion: v1
+    appVersion: master
+    created: "2019-12-05T15:37:06.693492777+01:00"
     description: High performance, feature rich document management system written
       for the cloud
     digest: c9a56cf4c594cce40b9b9c0a012d3d303f5fcbe8ab987cc2ca24188f2c739dbd
@@ -21,7 +39,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: master
-    created: "2019-12-04T16:02:54.093933194+01:00"
+    created: "2019-12-05T15:37:06.690289101+01:00"
     description: High performance, feature rich document management system written
       for the cloud
     digest: 0daa4609c7255b43620c8440e950c51e49c44f04fd207dfed575faa5d6032fa4
@@ -39,7 +57,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: master
-    created: "2019-12-04T16:02:54.087839301+01:00"
+    created: "2019-12-05T15:37:06.686318049+01:00"
     description: High performance, feature rich document management system written
       for the cloud
     digest: 85987c89837162cc4b25b00cd3aff59e5c64eb546e706c9a877a1de977b7e072
@@ -55,4 +73,4 @@ entries:
     urls:
     - balloon-0.2.3.tgz
     version: 0.2.3
-generated: "2019-12-04T16:02:54.084141834+01:00"
+generated: "2019-12-05T15:37:06.682730257+01:00"
