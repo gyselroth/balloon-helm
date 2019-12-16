@@ -33,7 +33,19 @@ spec:
             backend:
               serviceName: {{ $fullName }}
               servicePort: http
+          - path: "/openapi"
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+          - path: "/healthz"
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
           - path: "/share"
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: http
+          - path: "/wopi"
             backend:
               serviceName: {{ $fullName }}
               servicePort: http

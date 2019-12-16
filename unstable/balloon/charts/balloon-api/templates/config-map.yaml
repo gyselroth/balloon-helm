@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-balloon-config
   labels:
-    app.kubernetes.io/name: {{ include "balloon.name" . }}
-    helm.sh/chart: {{ include "balloon.chart" . }}
+    app.kubernetes.io/name: {{ include "balloon-api.name" . }}
+    helm.sh/chart: {{ include "balloon-api.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- if .Values.extraLabels }}

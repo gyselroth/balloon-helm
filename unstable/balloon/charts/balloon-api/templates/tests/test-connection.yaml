@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "balloon.fullname" . }}-test-connection"
+  name: "{{ include "balloon-api.fullname" . }}-test-connection"
   labels:
-    app.kubernetes.io/name: {{ include "balloon.name" . }}
-    helm.sh/chart: {{ include "balloon.chart" . }}
+    app.kubernetes.io/name: {{ include "balloon-api.name" . }}
+    helm.sh/chart: {{ include "balloon-api.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
   annotations:
@@ -14,5 +14,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args:  ['{{ include "balloon.fullname" . }}:{{ .Values.service.port }}']
+      args:  ['{{ include "balloon-api.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

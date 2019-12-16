@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "balloon.fullname" . }}-upgrade
+  name: {{ include "balloon-api.fullname" . }}-upgrade
   labels:
     app.kubernetes.io/managed-by: {{.Release.Service | quote }}
     app.kubernetes.io/instance: {{.Release.Name | quote }}
@@ -19,7 +19,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: {{ include "balloon.fullname" . }}-upgrade
+      name: {{ include "balloon-api.fullname" . }}-upgrade
       labels:
         app.kubernetes.io/managed-by: {{.Release.Service | quote }}
         app.kubernetes.io/instance: {{.Release.Name | quote }}
@@ -41,10 +41,10 @@ spec:
         - -wait 
         - tcp://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017
       containers:
-      - name: balloon
+      - name: balloon-api
         image:  "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         command: 
-        - ballooncli
+        - balloon-apicli
         - upgrade
         - -vvvv
         env:

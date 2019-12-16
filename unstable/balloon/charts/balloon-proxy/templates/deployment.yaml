@@ -35,16 +35,15 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /api
+              path: /healthz
               port: http
           readinessProbe:
             httpGet:
-              path: /api
+              path: /healthz
               port: http
           volumeMounts:
-          - mountPath: /etc/nginx/conf.d/balloon.conf
+          - mountPath: /etc/nginx/conf.d
             name: nginx
-            subPath: balloon.conf            
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

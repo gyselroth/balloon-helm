@@ -12,9 +12,9 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-balloon:
+balloon-api:
   service: 
-    name: balloon
+    name: balloon-api
     port: 9000
 
 nginx:

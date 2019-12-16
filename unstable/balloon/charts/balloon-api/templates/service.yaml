@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "balloon.fullname" . }}
+  name: {{ include "balloon-api.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ include "balloon.name" . }}
-    helm.sh/chart: {{ include "balloon.chart" . }}
+    app.kubernetes.io/name: {{ include "balloon-api.name" . }}
+    helm.sh/chart: {{ include "balloon-api.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- if .Values.extraLabels }}
@@ -18,5 +18,5 @@ spec:
       protocol: TCP
       name: php-fpm
   selector:
-    app.kubernetes.io/name: {{ include "balloon.name" . }}
+    app.kubernetes.io/name: {{ include "balloon-api.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
