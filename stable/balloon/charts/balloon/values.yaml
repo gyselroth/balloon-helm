@@ -6,7 +6,7 @@ replicaCount: 2
 
 image:
   repository: gyselroth/balloon
-  tag: 2.6.9
+  tag: 2.6.10
   pullPolicy: IfNotPresent
 
 nameOverride: ""
