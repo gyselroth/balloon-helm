@@ -33,7 +33,13 @@ spec:
           - name: BALLOON_CLAMAV_URI
             value: tcp://{{ .Release.Name }}-clamav:3310
           - name: BALLOON_LIBREOFFICE_COLLAB_URL
-            value: http://{{ .Release.Name }}-lool-collab:9980
+            value: http://{{ .Release.Name }}-lool-collab:9980/libreoffice
+          - name: BALLOON_LIBREOFFICE_COLLAB_EXTERNAL_URL
+            value: {{ .Values.url }}
+          - name: BALLOON_LIBREOFFICE_COLLAB_WOPI_URL
+            value: http://{{ .Release.Name }}-balloon-proxy/wopi
+          - name: BALLOON_WOPI_POSTMESSAGE_ORIGIN
+            value: {{ .Values.url }}
           - name: BALLOON_LIBREOFFICE_CONVERT_URL
             value: http://{{ .Release.Name }}-lool-convert:9980
           - name: BALLOON_ELASTICSEARCH_URI

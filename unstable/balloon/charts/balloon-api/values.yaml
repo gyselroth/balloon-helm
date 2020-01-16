@@ -6,12 +6,12 @@ replicaCount: 2
 
 image:
   repository: gyselroth/balloon
-  tag: 2.7.0-beta3
+  tag: 2.7.0-beta4
   pullPolicy: IfNotPresent
 
 nameOverride: ""
 fullnameOverride: ""
-url: "https://balloon-api.local"
+url: "https://balloon.local"
 
 service:
   type: ClusterIP
