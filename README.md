@@ -104,7 +104,11 @@ Pack chart and update dependencies:
 helm package -d stable stable/balloon
 ```
 
-Update repository index:
+Checkout gh-pages and rebuild index
 ```
+git checkout gh-pages
+git add stable/*.tgz
 helm repo index stable/
+git commit .
+git checkout master
 ```
