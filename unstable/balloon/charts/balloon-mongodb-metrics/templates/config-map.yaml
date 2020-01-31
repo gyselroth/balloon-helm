@@ -18,7 +18,7 @@ data:
       help: 'The total number of processes in the queuy labeled by their status'
       value: total
       cacheTime: 5
-      realtime: true
+      realtime: false
       labels: [type,status]
       database: balloon
       collection: taskscheduler.jobs
@@ -43,7 +43,222 @@ data:
                      { "case": { "$eq": ["$_id.status", 5] }, "then": "canceled" },
                      { "case": { "$eq": ["$_id.status", 6] }, "then": "timeout" }
                   ],
-                  "default": { "then": "unknown" }
+                  "default": "unknown"
               }}
           }}
-        ]    
+        ]
+    - name: balloon_nodes_total
+      type: gauge
+      help: 'The total number of nodes stored in balloon'
+      value: total
+      cacheTime: 60
+      realtime: false
+      labels: [deleted,kind]
+      database: balloon
+      collection: storage
+      pipeline: |
+        [
+          {"$project":{
+            "kind": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$directory", false] }, "then": "Collection" }
+                  ],
+                  "default": "File"
+              }
+            },
+            "deleted": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$deleted", false] }, "then": "false" }
+                  ],
+                  "default": "true"
+              }
+            }
+          }},
+          {"$group": {
+            "_id":{"kind":"$kind","deleted":"$deleted"},
+            "total":{"$sum":1}
+          }},
+          {"$project":{
+            "_id":0,
+            "kind":"$_id.kind",
+            "deleted":"$_id.deleted",
+            "total":"$total"
+          }}
+        ]
+    - name: balloon_files_total
+      type: gauge
+      help: 'The total number of files stored in balloon'
+      value: total
+      cacheTime: 120
+      realtime: false
+      labels: [storage,deleted,zombie]
+      database: balloon
+      collection: storage
+      pipeline: |
+        [
+          {"$match":{
+            "directory": false
+          }},
+          {"$lookup":{
+            "from":"fs.files",
+            "localField":"storage._id",
+            "foreignField":"_id",
+            "as":"blob"
+          }},
+          {"$project":{
+            "storage": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$storage_reference", null] }, "then": "internal" }
+                  ],
+                  "default": "external"
+              }
+            },
+            "deleted": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$deleted", false] }, "then": "false" }
+                  ],
+                  "default": "true"
+              }
+            },
+            "zombie": {
+              "$cond": {
+                 "if": { "$and": [{"$eq": [ "$storage_reference", null ] }, {"$gt": [ "$size", 0 ] }, {"$gt": [{"$size": "$blob"},0]}]},
+                 "then": "true",
+                 "else": "false"
+              }
+            }
+          }},
+          {"$group": {
+            "_id":{"storage":"$storage","deleted":"$deleted","zombie":"$zombie"},
+            "total":{"$sum":1}
+          }},
+          {"$project":{
+            "_id":0,
+            "storage":"$_id.storage",
+            "deleted":"$_id.deleted",
+            "zombie":"$_id.zombie",
+            "total":"$total"
+          }}
+        ]
+    - name: balloon_internal_blobs_total
+      type: gauge
+      help: 'The total number of blobs stored in balloon internally (GridFS)'
+      value: total
+      cacheTime: 120
+      realtime: false
+      labels: [temporary]
+      database: balloon
+      collection: fs.files
+      pipeline: |
+        [
+          {"$project":{
+            "temporary": {
+              "$cond": {
+                 "if": { "$eq": [ "$metadata.temporary", true ] },
+                 "then": "true",
+                 "else": "false"
+              }
+            }
+          }},
+          {"$group": {
+            "_id":{"temporary":"$temporary"},
+            "total":{"$sum":1}
+          }},
+          {"$project":{
+            "_id":0,
+            "temporary":"$_id.temporary",
+            "total":"$total"
+          }}
+        ]
+    - name: balloon_files_bytes
+      type: gauge
+      help: 'The bytes of files stored in balloon'
+      value: total
+      cacheTime: 120
+      realtime: false
+      labels: [storage,deleted,zombie]
+      database: balloon
+      collection: storage
+      pipeline: |
+        [
+          {"$match":{
+            "directory": false
+          }},
+          {"$lookup":{
+            "from":"fs.files",
+            "localField":"storage._id",
+            "foreignField":"_id",
+            "as":"blob"
+          }},
+          {"$project":{
+            "size":"$size",
+            "storage": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$storage_reference", null] }, "then": "internal" }
+                  ],
+                  "default": "external"
+              }
+            },
+            "deleted": {
+              "$switch": {
+                  "branches": [
+                     { "case": { "$eq": ["$deleted", false] }, "then": "false" }
+                  ],
+                  "default": "true"
+              }
+            },
+            "zombie": {
+              "$cond": {
+                 "if": { "$and": [{"$eq": [ "$storage_reference", null ] }, {"$gt": [ "$size", 0 ] }, {"$gt": [{"$size": "$blob"},0]}]},
+                 "then": "true",
+                 "else": "false"
+              }
+            }
+          }},
+          {"$group": {
+            "_id":{"storage":"$storage","deleted":"$deleted","zombie":"$zombie"},
+            "total":{"$sum":"$size"}
+          }},
+          {"$project":{
+            "_id":0,
+            "storage":"$_id.storage",
+            "deleted":"$_id.deleted",
+            "zombie":"$_id.zombie",
+            "total":"$total"
+          }}
+        ]
+    - name: balloon_internal_blobs_bytes
+      type: gauge
+      help: 'The size in bytes of blobs stored in balloon internally (GridFS)'
+      value: total
+      cacheTime: 120
+      realtime: false
+      labels: [temporary]
+      database: balloon
+      collection: fs.files
+      pipeline: |
+        [
+          {"$project":{
+            "temporary": {
+              "$cond": {
+                 "if": { "$eq": [ "$metadata.temporary", true ] },
+                 "then": "true",
+                 "else": "false"
+              }
+            }
+          }},
+          {"$group": {
+            "_id":{"temporary":"$temporary"},
+            "total":{"$sum":"$length"}
+          }},
+          {"$project":{
+            "_id":0,
+            "temporary":"$_id.temporary",
+            "total":"$total"
+          }}
+        ]

@@ -1,5 +1,20 @@
+balloon-api:
+  enabled: true
+  
+balloon-jobs:
+  enabled: true
+  
+balloon-proxy:
+  enabled: true
+  
+balloon-webui: 
+  enabled: true
+
+balloon-mongodb-metrics: 
+  enabled: false
+
 mongodb:
-  install: true
+  enabled: true
 
 elasticsearch:
   enabled: true
@@ -15,6 +30,7 @@ browserless-chrome:
   enabled: true
 
 lool-collab:
+  enabled: true
   image:
     tag: 4.2.0.3
   collabora:
@@ -23,6 +39,7 @@ lool-collab:
     initialDelaySeconds: 120
 
 lool-convert:
+  enabled: true
   image:
     tag: 4.2.0.3
   collabora:
@@ -30,25 +47,6 @@ lool-convert:
   replicaCount: 2
   livenessProbe:
     initialDelaySeconds: 120
-
-balloon:
-  balloon:
-    enabled: true
-    url: "https://balloon.local"
-  
-  balloon-jobs:
-    enabled: true
-  
-  balloon-proxy:
-    enabled: true
-    ingress:
-      enabled: false
-  
-  balloon-web: 
-    enabled: true
-  
-  preview:
-    enabled: true
 
 elasticsearch:
   enabled: true

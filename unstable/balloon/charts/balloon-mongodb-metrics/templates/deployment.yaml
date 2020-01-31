@@ -31,8 +31,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: MDBEXPORTER_MONGODB_URI
-          {{- if .Values.mongodbURI }}
-            value: {{ .Values.mongodbURI }}
+          {{- if .Values.mongodb.uri }}
+            value: {{ .Values.mongodb.uri }}
           {{- else }}
             value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
           {{- end }}

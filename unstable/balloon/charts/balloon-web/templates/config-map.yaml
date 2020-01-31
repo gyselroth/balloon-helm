@@ -10,5 +10,3 @@ metadata:
 {{- if .Values.extraLabels }}
 {{ toYaml .Values.extraLabels | indent 4 }}
 {{- end }}
-data:
-  config.json: "{}"     

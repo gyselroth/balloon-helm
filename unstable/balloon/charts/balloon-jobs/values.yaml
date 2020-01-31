@@ -9,6 +9,43 @@ image:
   tag: 2.7.0-beta4
   pullPolicy: IfNotPresent
 
+url: "https://balloon.local"
+
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 20
+  metricType: Object
+  metricName: balloon_processes_queued
+  objectName: null
+  resourceName: cpu
+  averageUtilization: 50
+  objectApiVersion: v1
+  objectKind: Service
+  averageValue: 10
+  targetType: AverageValue
+
+services:
+  clamav:
+    enabled: true
+    uri: null
+  elasticsearch:
+    enabled: true
+    uri: null
+  libreofficeCollab:
+    enabled: true
+    uri: null
+    wopiUri: null
+  libreofficePreview:
+    enabled: true
+    uri: null
+  burl:
+    enabled: true
+    browserlessUri: null
+
+mongodb:
+  uri: null
+
 nameOverride: ""
 fullnameOverride: ""
 

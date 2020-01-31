@@ -42,11 +42,11 @@ Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch stor
 helm install balloon-stable/balloon --name my-release --namespace mynamespace \
     --set balloon-proxy.ingress.enabled=true \
     --set balloon-web.ingress.enabled=true \
-    --set balloon-proxy.ingress.host=balloon.local \
-    --set balloon-web.ingress.host=balloon.local \
-    --set balloon-web.ingress.tls[0].secretName=tls-balloon.local \
-    --set balloon-proxy.ingress.tls[0].secretName=tls-balloon.local \
-    --set balloon.url=https://balloon.local \
+    --set balloon-proxy.ingress.host=balloon-api.local \
+    --set balloon-web.ingress.host=balloon-api.local \
+    --set balloon-web.ingress.tls[0].secretName=tls-balloon-api.local \
+    --set balloon-proxy.ingress.tls[0].secretName=tls-balloon-api.local \
+    --set balloon-api.url=https://balloon-api.local \
     --set mongodb.persistentVolume.size=200Gi \
     --set elasticsearch.data.persistence.size=75Gi \
     --set elasticsearch.data.replicas=3
@@ -66,21 +66,21 @@ The following table lists the configurable parameters of the balloon sub charts 
 
 | Parameter                           | Description                                                               | Default                                             |
 | ----------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------- |
-| `balloon.replicaCount`              | Number of replicas in the replica set                                     | `2`                                                 |
-| `balloon.fullnameOverrride`         | Override deployment name                                                  | `""`                                                |
-| `balloon.nameOverride`              | Override deployment name                                                  | `""`                                                |
-| `balloon.url`                       | The URL of balloon under which the server is reachable from outside       | `https://balloon.local`                             |
-| `balloon.image.repository`          | Image repository and name                                                 | `gyselroth/balloon`                                 |
-| `balloon.image.tag`                 | Image tag for the install container                                       | `2.6.7`                                             |
-| `balloon.image.pullPolicy`          | Image pull policy for the init container that establishes the replica set | `IfNotPresent`                                      |
-| `balloon.service.type`              | Service Type                                                              | `ClusterIP`                                         |
-| `balloon.service.port`              | Service Port (balloon < v3 is executed using PHP-FPM)                     | `9000`                                              |
-| `balloon.extraLabels`               | Extra labels                                                              | `{}`                                                |
-| `balloon.extraVars`                 | Extra env variables                                                       | `{}`                                                |
-| `balloon.nodeSelector`              | Custom node selector                                                      | `""`                                                |
-| `balloon.tolerations`               | Tolerations                                                               | `[]`                                                |
-| `balloon.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
-| `balloon.affinity`                  | Affinitiy                                                                 | `{}`                                                |
+| `balloon-api.replicaCount`              | Number of replicas in the replica set                                     | `2`                                                 |
+| `balloon-api.fullnameOverrride`         | Override deployment name                                                  | `""`                                                |
+| `balloon-api.nameOverride`              | Override deployment name                                                  | `""`                                                |
+| `balloon-api.url`                       | The URL of balloon under which the server is reachable from outside       | `https://balloon-api.local`                             |
+| `balloon-api.image.repository`          | Image repository and name                                                 | `gyselroth/balloon`                                 |
+| `balloon-api.image.tag`                 | Image tag for the install container                                       | `2.6.7`                                             |
+| `balloon-api.image.pullPolicy`          | Image pull policy for the init container that establishes the replica set | `IfNotPresent`                                      |
+| `balloon-api.service.type`              | Service Type                                                              | `ClusterIP`                                         |
+| `balloon-api.service.port`              | Service Port (balloon < v3 is executed using PHP-FPM)                     | `9000`                                              |
+| `balloon-api.extraLabels`               | Extra labels                                                              | `{}`                                                |
+| `balloon-api.extraVars`                 | Extra env variables                                                       | `{}`                                                |
+| `balloon-api.nodeSelector`              | Custom node selector                                                      | `""`                                                |
+| `balloon-api.tolerations`               | Tolerations                                                               | `[]`                                                |
+| `balloon-api.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
+| `balloon-api.affinity`                  | Affinitiy                                                                 | `{}`                                                |
 
 
 ## Installing pre releases

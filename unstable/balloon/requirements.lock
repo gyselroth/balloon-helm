@@ -1,18 +1,33 @@
 dependencies:
 - name: mongodb-replicaset
   repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 3.10.1
+  version: 3.11.4
 - name: elasticsearch
   repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.31.1
+  version: 1.32.2
 - name: clamav
   repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.0.3
-- name: collabora-code
-  repository: https://kubernetes-charts.storage.googleapis.com/
   version: 1.0.5
 - name: collabora-code
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 1.0.5
-digest: sha256:41fef8f691264be8ce7c2fea30ddefcccb628c7787203d267c2c60b3ba8ed81e
-generated: 2019-10-02T16:25:39.599248344+02:00
+- name: collabora-code
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: 1.0.5
+- name: balloon-mongodb-metrics
+  repository: ""
+  version: 0.0.2
+- name: balloon-jobs
+  repository: ""
+  version: 0.1.8
+- name: balloon-api
+  repository: ""
+  version: 0.1.11
+- name: balloon-web
+  repository: ""
+  version: 0.2.4
+- name: balloon-proxy
+  repository: ""
+  version: 0.2.2
+digest: sha256:00bf5d6993ee7f5c7f5e8cbb410680c0e5f19410dd758b69c7b49beb26c8d78a
+generated: "2020-01-30T20:02:40.713497745+01:00"

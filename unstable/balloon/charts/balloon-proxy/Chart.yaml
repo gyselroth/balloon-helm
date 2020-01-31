@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 name: balloon-proxy
 description: Nginx proxy for balloon php-fpm
 type: application

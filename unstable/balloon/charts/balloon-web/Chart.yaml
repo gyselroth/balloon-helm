@@ -1,8 +1,8 @@
-apiVersion: v1
+apiVersion: v2
 name: balloon-web
 description: balloon web user interface
 type: application
-version: 0.2.3
+version: 0.2.4
 appVersion: 3.2.12
 keywords:
 - balloon
