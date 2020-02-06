@@ -14,6 +14,7 @@ This charts includes the following sub charts:
 * balloon server proxy
 * balloon web ui
 * balloon jobs
+* balloon mongodb metrics
 * browserless-chrome
 
 The following sub charts get installed as dependencies from helm stable if enabled (which is the default):
