@@ -47,6 +47,7 @@ helm install balloon-stable/balloon --name my-release --namespace mynamespace \
     --set balloon-web.ingress.tls[0].secretName=tls-balloon-api.local \
     --set balloon-proxy.ingress.tls[0].secretName=tls-balloon-api.local \
     --set balloon-api.url=https://balloon-api.local \
+    --set lool-collab.collabora.domain=https://balloon-api.local \
     --set mongodb.persistentVolume.size=200Gi \
     --set elasticsearch.data.persistence.size=75Gi \
     --set elasticsearch.data.replicas=3
