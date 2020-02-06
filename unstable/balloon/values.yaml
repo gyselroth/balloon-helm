@@ -34,9 +34,13 @@ lool-collab:
   image:
     tag: 4.2.0.3
   collabora:
-    extra_params: --o:ssl.termination=false --o:ssl.enable=false --o:net.post_allow.host[0]=::ffff:10.[0-9]+.[0-9]+.[0-9]+ --o:storage.wopi.host[2]=::ffff:10.[0-9]+.[0-9]+.[0-9]+ --o:net.service_root="/libreoffice"
+    server_name: '""'
+    extra_params: --o:ssl.termination=true --o:ssl.enable=false --o:net.post_allow.host[0]=::ffff:10.[0-9]+.[0-9]+.[0-9]+ --o:storage.wopi.host[2]=::ffff:10.[0-9]+.[0-9]+.[0-9]+ --o:net.service_root="/libreoffice"
   livenessProbe:
+    enabled: false
     initialDelaySeconds: 120
+  readinessProbe:
+    enabled: false
 
 lool-convert:
   enabled: true

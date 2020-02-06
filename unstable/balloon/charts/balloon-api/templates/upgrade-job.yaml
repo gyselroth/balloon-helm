@@ -36,10 +36,16 @@ spec:
         - dockerize 
         - -timeout
         - 120s
+        {{- if .Values.services.elasticsearch.uri }}
+        {{- else }}
         - -wait
         - http://{{ .Release.Name }}-elasticsearch-client:9200
-        - -wait 
+        {{- end }}
+        {{- if .Values.mongodb.uri }}
+        {{- else }}
+        - -wait
         - tcp://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017
+        {{- end }}
       containers:
       - name: balloon-api
         image:  "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -47,6 +53,12 @@ spec:
         - ballooncli
         - upgrade
         - -vvvv
+        {{- if .Values.upgrade.ignoreErrors }}
+        - -i
+        {{- end }}
+        {{- if .Values.upgrade.forceApply }}
+        - -f
+        {{- end }}
         env:
         - name: BALLOON_CLAMAV_URI
         {{- if .Values.services.clamav.uri }}
@@ -83,4 +95,12 @@ spec:
 {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 8 }}
 {{- end }}
+        volumeMounts:
+        - mountPath: /etc/balloon
+          name: config-volume        
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: {{ .Release.Name }}-balloon-config
+        name: config-volume        
   backoffLimit: 4

@@ -42,13 +42,11 @@ spec:
           {{- else }}
             value: http://{{ .Release.Name }}-lool-collab:9980/libreoffice
           {{- end }}
-          - name: BALLOON_LIBREOFFICE_COLLAB_EXTERNAL_URL
-            value: {{ .Values.url }}          
           - name: BALLOON_LIBREOFFICE_COLLAB_WOPI_URL
           {{- if .Values.services.libreofficeCollab.wopiUri }}
             value: {{ .Values.services.libreofficeCollab.wopiUri }}
           {{- else }}
-            value: http://{{ .Release.Name }}-balloon-proxy/wopi
+            value: {{ .Values.url }}/wopi
           {{- end }}
           - name: BALLOON_WOPI_POSTMESSAGE_ORIGIN
             value: {{ .Values.url }}
