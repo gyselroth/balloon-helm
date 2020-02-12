@@ -43,10 +43,10 @@ Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch stor
 helm install balloon-stable/balloon --name my-release --namespace mynamespace \
     --set balloon-proxy.ingress.enabled=true \
     --set balloon-web.ingress.enabled=true \
-    --set balloon-proxy.ingress.host=balloon-api.local \
-    --set balloon-web.ingress.host=balloon-api.local \
-    --set balloon-web.ingress.tls[0].secretName=tls-balloon-api.local \
-    --set balloon-proxy.ingress.tls[0].secretName=tls-balloon-api.local \
+    --set balloon-proxy.ingress.hosts[0].name=balloon-api.local \
+    --set balloon-web.ingress.hosts[0].name=balloon-api.local \
+    --set balloon-web.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
+    --set balloon-proxy.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
     --set balloon-api.url=https://balloon-api.local \
     --set lool-collab.collabora.domain=https://balloon-api.local \
     --set mongodb.persistentVolume.size=200Gi \
