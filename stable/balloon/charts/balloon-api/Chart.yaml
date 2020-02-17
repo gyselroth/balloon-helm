@@ -1,14 +1,14 @@
-apiVersion: v1
-name: balloon
+apiVersion: v2
+name: balloon-api
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 0.1.5
-appVersion: 2.6.10
+version: 0.1.12
+appVersion: 2.7.1
 keywords:
-- balloon
-home: https://github.com/gyselroth/balloon
+- balloon-api
+home: https://github.com/gyselroth/balloon-api
 sources:
-- https://github.com/gyselroth/balloon-helm
+- https://github.com/gyselroth/balloon-api-helm
 maintainers:
 - name: Raffael Sahli
   email: sahli@gyselroth.com

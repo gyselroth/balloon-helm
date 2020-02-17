@@ -1,8 +1,8 @@
-apiVersion: v1
+apiVersion: v2
 name: balloon
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 0.2.7
+version: 0.2.13
 appVersion: master
 keywords:
 - balloon
@@ -12,3 +12,42 @@ sources:
 maintainers:
 - name: Raffael Sahli
   email: sahli@gyselroth.com
+dependencies:
+- name: mongodb-replicaset
+  version: 3.11.4
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: mongodb.enabled
+  alias: mongodb
+- name: elasticsearch
+  version: 1.32.2
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: elasticsearch.enabled
+- name: clamav
+  version: 1.0.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: clamav.enabled
+- name: collabora-code
+  version: 1.0.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: ballon.preview.enabled
+  alias: lool-convert
+- name: collabora-code
+  version: 1.0.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: libreoffice.enabled
+  alias: lool-collab
+- name: balloon-mongodb-metrics
+  version: 0.0.3
+  condition: balloon-mongodb-metrics.enabled
+- name: balloon-jobs
+  version: 0.1.9
+  condition: balloon-jobs.enabled
+- name: balloon-api
+  version: 0.1.12
+  condition: balloon-api.enabled
+- name: balloon-web
+  version: 0.2.4
+  condition: balloon-web.enabled
+- name: balloon-proxy
+  version: 0.2.2
+  condition: balloon-proxy.enabled  

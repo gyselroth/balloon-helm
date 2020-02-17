@@ -1,9 +1,9 @@
 apiVersion: v2
-name: balloon-jobs
-description: balloon jobs runner
+name: balloon-mongodb-metrics
+description: Provides overall balloon metrics using data from MongoDB
 type: application
-version: 0.1.9
-appVersion: 2.7.1
+version: 0.0.3
+appVersion: 1.0.0-beta2
 keywords:
 - balloon
 home: https://github.com/gyselroth/balloon

@@ -1,0 +1,54 @@
+{{- if .Values.hpa.enabled -}}
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "balloon-jobs.fullname" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "balloon-jobs.name" . }}
+    helm.sh/chart: {{ include "balloon-jobs.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.extraLabels }}
+{{ toYaml .Values.extraLabels | indent 4 }}
+{{- end }}
+spec:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: {{ include "balloon-jobs.fullname" . }}
+  minReplicas: {{ .Values.hpa.minReplicas }}
+  maxReplicas: {{ .Values.hpa.maxReplicas }}
+  metrics:
+{{- if eq .Values.hpa.metricType "Pods" }}
+  - type: Pods
+    pods:
+      metric:
+        name: {{ .Values.hpa.metricName }}
+      target:
+        type: {{ .Values.hpa.targetType }}
+        averageValue: {{ .Values.hpa.averageValue }}
+{{- else if eq .Values.hpa.metricType "Resorce" }}
+  - type: Resource
+    resource:
+      name: {{ .Values.hpa.resourceName }}
+      target:
+        type: {{ .Values.hpa.targetType }}
+        averageValue: {{ .Values.hpa.averageUtilization }}
+{{- else }}
+  - type: Object
+    object:
+      metric:
+        name: {{ .Values.hpa.metricName }}
+      describedObject:
+        apiVersion: {{ .Values.hpa.objectApiVersion }}
+        kind: {{ .Values.hpa.objectKind }}
+        {{- if .Values.hpa.objectName }}
+        name: {{ .Values.hpa.objectName }}
+        {{- else }}
+        name: {{ .Release.Name }}-balloon-mongodb-metrics
+        {{- end }}
+      target:
+        type: {{ .Values.hpa.targetType }}
+        averageValue: {{ .Values.hpa.averageValue }}
+{{- end }}
+{{- end }}

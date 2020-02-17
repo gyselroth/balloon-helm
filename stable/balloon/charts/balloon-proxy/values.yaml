@@ -12,9 +12,23 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-balloon:
+hpa:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 20
+  metricType: Object
+  metricName: balloon_http_requests
+  objectName: null
+  resourceName: cpu
+  averageUtilization: 50
+  objectApiVersion: v1
+  objectKind: Service
+  averageValue: 300
+  targetType: AverageValue
+
+balloon-api:
   service: 
-    name: balloon
+    name: null
     port: 9000
 
 nginx:

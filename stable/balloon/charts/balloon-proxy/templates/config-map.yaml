@@ -9,7 +9,7 @@ data:
         error_log /dev/stderr;
         client_max_body_size 16G;
 
-        location ~ ^/(api|webdav|share) {
+        location ~ ^/(api|webdav|share|wopi|openapi|healthz) {
             index index.php;
             root /usr/share/balloon/bin/httpdocs;
             rewrite ^(.+)$ /index.php$1 last;
@@ -18,7 +18,11 @@ data:
 
         location ~ ^/index.php {
             root /usr/share/balloon/bin/httpdocs;
-            fastcgi_pass {{ .Release.Name }}:{{ .Values.balloon.service.port }};
+            {{- if .Values.service.name }}
+              fastcgi_pass {{ index .Values "balloon-api" "service" "name" }}:{{ index .Values "balloon-api" "service" "port" }};
+            {{- else }}
+              fastcgi_pass {{ .Release.Name }}-balloon-api:{{ index .Values "balloon-api" "service" "port" }};
+            {{- end }}
             fastcgi_read_timeout {{ .Values.nginx.fastcgi_read_timeout }};
             fastcgi_param SCRIPT_FILENAME /usr/share/balloon/bin/httpdocs$fastcgi_script_name;
             fastcgi_param PATH_INFO $fastcgi_script_name;
