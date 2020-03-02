@@ -14,6 +14,7 @@ This charts includes the following sub charts:
 * balloon server proxy
 * balloon web ui
 * balloon jobs
+* balloon mongodb metrics
 * browserless-chrome
 
 The following sub charts get installed as dependencies from helm stable if enabled (which is the default):
@@ -42,11 +43,12 @@ Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch stor
 helm install balloon-stable/balloon --name my-release --namespace mynamespace \
     --set balloon-proxy.ingress.enabled=true \
     --set balloon-web.ingress.enabled=true \
-    --set balloon-proxy.ingress.host=balloon-api.local \
-    --set balloon-web.ingress.host=balloon-api.local \
-    --set balloon-web.ingress.tls[0].secretName=tls-balloon-api.local \
-    --set balloon-proxy.ingress.tls[0].secretName=tls-balloon-api.local \
+    --set balloon-proxy.ingress.hosts[0].name=balloon-api.local \
+    --set balloon-web.ingress.hosts[0].name=balloon-api.local \
+    --set balloon-web.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
+    --set balloon-proxy.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
     --set balloon-api.url=https://balloon-api.local \
+    --set lool-collab.collabora.domain=https://balloon-api.local \
     --set mongodb.persistentVolume.size=200Gi \
     --set elasticsearch.data.persistence.size=75Gi \
     --set elasticsearch.data.replicas=3
@@ -104,7 +106,11 @@ Pack chart and update dependencies:
 helm package -d stable stable/balloon
 ```
 
-Update repository index:
+Checkout gh-pages and rebuild index
 ```
+git checkout gh-pages
+git add stable/*.tgz
 helm repo index stable/
+git commit .
+git checkout master
 ```

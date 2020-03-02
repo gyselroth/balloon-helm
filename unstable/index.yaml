@@ -3,7 +3,70 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: "2020-03-02T14:22:42.668827621+01:00"
+    created: "2020-03-02T14:26:17.044484015+01:00"
+    dependencies:
+    - alias: mongodb
+      condition: mongodb.enabled
+      name: mongodb-replicaset
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 3.11.4
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.32.2
+    - condition: clamav.enabled
+      name: clamav
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.0.5
+    - alias: lool-convert
+      condition: ballon.preview.enabled
+      name: collabora-code
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.0.5
+    - alias: lool-collab
+      condition: libreoffice.enabled
+      name: collabora-code
+      repository: https://kubernetes-charts.storage.googleapis.com/
+      version: 1.0.5
+    - condition: balloon-mongodb-metrics.enabled
+      name: balloon-mongodb-metrics
+      repository: ""
+      version: 0.0.3
+    - condition: balloon-jobs.enabled
+      name: balloon-jobs
+      repository: ""
+      version: 0.1.9
+    - condition: balloon-api.enabled
+      name: balloon-api
+      repository: ""
+      version: 0.1.12
+    - condition: balloon-web.enabled
+      name: balloon-web
+      repository: ""
+      version: 0.2.4
+    - condition: balloon-proxy.enabled
+      name: balloon-proxy
+      repository: ""
+      version: 0.2.2
+    description: High performance, feature rich document management system written
+      for the cloud
+    digest: 9c102dc6b14b3ba7a4646e75b9fa42baaa87166d27ebf39597227ce709394fa0
+    home: https://github.com/gyselroth/balloon
+    keywords:
+    - balloon
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: balloon
+    sources:
+    - https://github.com/gyselroth/balloon-helm
+    type: application
+    urls:
+    - balloon-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: master
+    created: "2020-03-02T14:26:17.005624168+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -66,7 +129,7 @@ entries:
     version: 0.2.13
   - apiVersion: v2
     appVersion: master
-    created: "2020-03-02T14:22:42.661364682+01:00"
+    created: "2020-03-02T14:26:16.998128846+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -129,7 +192,7 @@ entries:
     version: 0.2.12
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.65356057+01:00"
+    created: "2020-03-02T14:26:16.989454544+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -171,7 +234,7 @@ entries:
     version: 0.2.11
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.647297966+01:00"
+    created: "2020-03-02T14:26:16.98336694+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -213,7 +276,7 @@ entries:
     version: 0.2.10
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.703124341+01:00"
+    created: "2020-03-02T14:26:17.037963684+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -255,7 +318,7 @@ entries:
     version: 0.2.9
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.698588816+01:00"
+    created: "2020-03-02T14:26:17.034052779+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -297,7 +360,7 @@ entries:
     version: 0.2.8
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.693403835+01:00"
+    created: "2020-03-02T14:26:17.029334806+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -339,7 +402,7 @@ entries:
     version: 0.2.7
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.688866249+01:00"
+    created: "2020-03-02T14:26:17.025027999+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -381,7 +444,7 @@ entries:
     version: 0.2.6
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.683611975+01:00"
+    created: "2020-03-02T14:26:17.019906722+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -423,7 +486,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.679100011+01:00"
+    created: "2020-03-02T14:26:17.015362807+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -465,7 +528,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: master
-    created: "2020-03-02T14:22:42.673485755+01:00"
+    created: "2020-03-02T14:26:17.010218707+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -505,4 +568,4 @@ entries:
     urls:
     - balloon-0.2.3.tgz
     version: 0.2.3
-generated: "2020-03-02T14:22:42.640621412+01:00"
+generated: "2020-03-02T14:26:16.977666395+01:00"
