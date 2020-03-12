@@ -2,6 +2,7 @@
 
 ## Prerequisites Details
 
+* helm v3 (Documented for helm3, however helm2 will also work if you use the correct commands)
 * Kubernetes 1.9+
 * PV support on the underlying infrastructure
 
@@ -34,13 +35,13 @@ To install the chart with the release name `my-release`:
 
 ```console
 helm repo add balloon-stable https://gyselroth.github.io/balloon-helm/stable
-helm install balloon-stable/balloon --name my-release --namespace mynamespace
+helm install my-release balloon-stable/balloon --namespace mynamespace
 ```
 
 Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch storage:
 
 ```console
-helm install balloon-stable/balloon --name my-release --namespace mynamespace \
+helm install my-release balloon-stable/balloon --namespace mynamespace \
     --set balloon-proxy.ingress.enabled=true \
     --set balloon-web.ingress.enabled=true \
     --set balloon-proxy.ingress.hosts[0].name=balloon-api.local \
@@ -94,7 +95,7 @@ To install an unstable chart with the release name `my-release`:
 
 ```console
 helm repo add balloon-unstable https://gyselroth.github.io/balloon-helm/unstable
-helm install balloon-unstable/balloon --name my-release --namespace mynamespace
+helm install my-release balloon-unstable/balloon --namespace mynamespace
 ```
 
 ## Release new charts
