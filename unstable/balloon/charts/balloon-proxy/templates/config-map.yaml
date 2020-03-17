@@ -11,6 +11,9 @@ data:
 
         location ~ ^/(api|webdav|share|wopi|openapi|healthz) {
             index index.php;
+
+
+
             root /usr/share/balloon/bin/httpdocs;
             rewrite ^(.+)$ /index.php$1 last;
             break;
