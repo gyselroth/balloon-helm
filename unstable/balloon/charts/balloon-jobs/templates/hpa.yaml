@@ -27,7 +27,7 @@ spec:
       target:
         type: {{ .Values.hpa.targetType }}
         averageValue: {{ .Values.hpa.averageValue }}
-{{- else if eq .Values.hpa.metricType "Resource" }}
+{{- else if eq .Values.hpa.metricType "Resorce" }}
   - type: Resource
     resource:
       name: {{ .Values.hpa.resourceName }}

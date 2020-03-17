@@ -2,8 +2,8 @@ apiVersion: v2
 name: balloon-web
 description: balloon web user interface
 type: application
-version: 0.2.4
-appVersion: 3.2.12
+version: 1.0.0
+appVersion: 3.2.13
 keywords:
 - balloon
 home: https://github.com/gyselroth/balloon-client-web
