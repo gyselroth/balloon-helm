@@ -1,0 +1,49 @@
+| |         | | |                  
+| |__   __ _| | | ___   ___  _ __  
+| '_ \ / _` | | |/ _ \ / _ \| '_ \ 
+| |_) | (_| | | | (_) | (_) | | | |
+|_.__/ \__,_|_|_|\___/ \___/|_| |_|
+
+
+Thank you for installing {{ .Chart.Name }}.
+
+Your release is named {{ .Release.Name }}.
+
+To learn more about the release, try:
+
+  $ helm status {{ .Release.Name }}
+  $ helm get all {{ .Release.Name }}
+
+{{ if .Values.ingress.enabled }}
+balloon is now reachable using one of:
+{{- range .Values.ingress.hosts }}
+  {{- if .tls }}
+* https://{{ .name }}
+  {{- else}}
+* http://{{ .name }}
+  {{- end}}
+{{- end}}
+{{- else }}
+NOTE: Ingress is not enabled. If you want to access balloon services from outside the kubernetes cluster you have to enable ingress
+or manually configure ingress traffic. Execute helm with `--set ingress.enabled=true` to enable ingress handling.
+{{- end }}
+
+An admin account has been created for you. Please do not forget to change the password.
+Username: admin
+Password: admin
+
+
+Component overview:
+
++==========================+============+
+| Sub Component            | Enabled    |
++==========================+============+
+{{- range $key, $value := .Values }} 
+{{- $name := printf "%s                                           " $key }}
+{{- if .enabled }}
+| {{ trunc 25 $name }}| YES        |
+{{- else }}
+| {{ trunc 25 $name }}| NO         |
+{{- end }}
++--------------------------|------------+
+{{- end }}

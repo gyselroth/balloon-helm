@@ -6,8 +6,8 @@ balloon-jobs:
   
 balloon-proxy:
   enabled: true
-  
-balloon-webui: 
+
+balloon-web: 
   enabled: true
 
 balloon-mongodb-metrics: 
@@ -57,3 +57,13 @@ elasticsearch:
   cluster:
     plugins:
     - ingest-attachment
+
+ingress:
+  enabled: true
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts: 
+  - name: "balloon.local"
+    #tls:
+      #secretName: secret-tls

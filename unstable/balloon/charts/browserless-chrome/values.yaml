@@ -16,6 +16,35 @@ service:
   type: ClusterIP
   port: 3000
 
+## priorityClassName
+# priorityClassName: {}
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 5
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 1
+  successThreshold: 1
+  failureThreshold: 5
+
+securityContext:
+  enabled: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["all"]
+  readOnlyRootFilesystem: true
+  runAsGroup: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
+
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -27,6 +56,10 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+extraLabels: {}
+
+extraVars: {}
 
 nodeSelector: {}
 

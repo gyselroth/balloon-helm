@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: gyselroth/balloon
-  tag: 2.7.2
+  tag: 2.7.3
   pullPolicy: IfNotPresent
 
 url: "https://balloon.local"
@@ -48,6 +48,19 @@ mongodb:
 
 nameOverride: ""
 fullnameOverride: ""
+
+## priorityClassName
+# priorityClassName: {}
+
+securityContext:
+  enabled: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["all"]
+  readOnlyRootFilesystem: true
+  runAsGroup: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -2,11 +2,11 @@ apiVersion: v2
 name: balloon-mongodb-metrics
 description: Provides overall balloon metrics using data from MongoDB
 type: application
-version: 0.0.4
-appVersion: 1.0.0-beta3
+version: 1.0.0
+appVersion: 1.0.0-beta4
 keywords:
 - balloon
-home: https://github.com/gyselroth/balloon
+home: https://github.com/raffis/mongodb-query-exporter
 sources:
 - https://github.com/gyselroth/balloon-helm
 maintainers:

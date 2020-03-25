@@ -40,14 +40,48 @@ spec:
 {{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}
           ports:
-            - name: exporter
+            - name: http
               containerPort: 9412
               protocol: TCP
+          {{- if .Values.livenessProbe.enabled}}              
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+            httpGet:
+              path: /healthz
+              port: http
+          {{- end }}
+          {{- if .Values.readinessProbe.enabled}}              
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+            httpGet:
+              path: /healthz
+              port: http
+          {{- end }}
           volumeMounts:
           - mountPath: /root/.mongodb_query_exporter
             name: config-volume
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.securityContext.enabled }}
+          securityContext:
+            runAsUser: {{ .Values.securityContext.runAsUser }}
+            runAsGroup: {{ .Values.securityContext.runAsGroup }}
+            runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+            allowPrivilegeEscalation: {{ .Values.securityContext.allowPrivilegeEscalation }}
+            readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+            {{- if .Values.securityContext.capabilities }}
+            capabilities:
+              {{- toYaml .Values.securityContext.capabilities | nindent 14 }} 
+            {{- end }}         
+          {{- end }}            
       volumes:
       - configMap:
           defaultMode: 420
@@ -57,6 +91,9 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.priorityClassName }}
+      priorityClassName: "{{ .Values.priorityClassName }}"
+      {{- end }}      
     {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
