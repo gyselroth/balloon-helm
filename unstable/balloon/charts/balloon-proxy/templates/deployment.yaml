@@ -58,6 +58,8 @@ spec:
           volumeMounts:
           - mountPath: /etc/nginx/conf.d
             name: nginx
+          - mountPath: /tmp
+            name: tmp
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.securityContext.enabled }}
@@ -92,3 +94,5 @@ spec:
           defaultMode: 420
           name: {{ .Release.Name }}-balloon-nginx-proxy
         name: nginx
+      - emptyDir: {}
+        name: tmp

@@ -5,7 +5,7 @@ data:
     server_tokens off;
 
     server {
-        listen 80;
+        listen 8080;
         access_log /dev/stdout;
         error_log /dev/stderr;
         client_max_body_size 16G;

@@ -16,21 +16,21 @@ dependencies:
   version: 1.0.6
 - name: balloon-mongodb-metrics
   repository: ""
-  version: 0.0.4
+  version: 1.0.0
 - name: balloon-jobs
   repository: ""
-  version: 1.0.0
+  version: 1.0.1
 - name: balloon-api
   repository: ""
-  version: 1.0.0
+  version: 1.0.1
 - name: balloon-web
   repository: ""
-  version: 1.0.1
+  version: 1.0.3
 - name: balloon-proxy
   repository: ""
-  version: 0.2.2
+  version: 1.0.0
 - name: browserless-chrome
   repository: ""
-  version: 0.1.2
-digest: sha256:109387543070ede89366be911f6b10cf6fa9bbc6437b924bd86c5f65b99b5cfc
-generated: "2020-03-17T14:12:40.346714563+01:00"
+  version: 1.0.0
+digest: sha256:a6472bb71311bce6bbd5bda65533774871ca62752bd8280771550ce6a1c3c1de
+generated: "2020-03-26T16:07:59.692503078+01:00"

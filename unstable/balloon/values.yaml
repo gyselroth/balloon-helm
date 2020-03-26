@@ -21,7 +21,8 @@ elasticsearch:
 
 clamav: 
   enabled: true
-  replicaCount: 1
+  kubeMeta:
+    deploymentApiVersion: apps/v1
 
 libreoffice:
   enabled: true

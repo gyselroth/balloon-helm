@@ -106,6 +106,8 @@ spec:
           volumeMounts:
           - mountPath: /etc/balloon
             name: config-volume
+          - mountPath: /tmp
+            name: tmp
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- if .Values.securityContext.enabled }}
@@ -124,7 +126,9 @@ spec:
       - configMap:
           defaultMode: 420
           name: {{ .Release.Name }}-balloon-config
-        name: config-volume            
+        name: config-volume
+      - emptyDir: {}
+        name: tmp
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

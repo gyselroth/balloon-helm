@@ -38,16 +38,13 @@ helm repo add balloon-stable https://gyselroth.github.io/balloon-helm/stable
 helm install my-release balloon-stable/balloon --namespace mynamespace
 ```
 
+### Recommendation for most users
 Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch storage:
 
 ```console
 helm install my-release balloon-stable/balloon --namespace mynamespace \
-    --set balloon-proxy.ingress.enabled=true \
-    --set balloon-web.ingress.enabled=true \
-    --set balloon-proxy.ingress.hosts[0].name=balloon-api.local \
-    --set balloon-web.ingress.hosts[0].name=balloon-api.local \
-    --set balloon-web.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
-    --set balloon-proxy.ingress.hosts[0].tls.secretName=tls-balloon-api.local \
+    --set ingress.hosts[0].name=balloon-api.local \
+    --set ingress.hosts[0].tls.secretName=tls-balloon-api.local \
     --set balloon-api.url=https://balloon-api.local \
     --set lool-collab.collabora.domain=balloon-api.local \
     --set mongodb.persistentVolume.size=200Gi \
@@ -59,6 +56,29 @@ The balloon should now be installed and available. You may authenticate using th
 
 Username: admin<br/>
 Password: admin<br/>
+
+## Installing pre releases
+
+Besides the stable repository there is a repository which holds unstable balloon charts. 
+Unstable charts also include all balloon pre-releases (Usually alpha and beta versions).
+
+To install an unstable chart with the release name `my-release`:
+
+```console
+helm repo add balloon-unstable https://gyselroth.github.io/balloon-helm/unstable
+helm install my-release balloon-unstable/balloon --namespace mynamespace
+```
+
+### Local k8s cluster & testing
+
+If you want to test balloon on a testing k8s cluster which might not have support for pvc you may disable persistence support:
+
+```console
+helm install my-release balloon-stable/balloon --namespace mynamespace \
+    --set elasticsearch.data.persistence.enabled=0 \
+    --set elasticsearch.master.persistence.enabled=0 \
+    --set mongodb.persistentVolume.enabled=0
+```
 
 ## Configuration
 
@@ -85,18 +105,6 @@ The following table lists the configurable parameters of the balloon sub charts 
 | `balloon-api.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
 | `balloon-api.affinity`                  | Affinitiy                                                                 | `{}`                                                |
 
-
-## Installing pre releases
-
-Besides the stable repository there is a repository which holds unstable balloon charts. 
-Unstable charts also include all balloon pre-releases (Usually alpha and beta versions).
-
-To install an unstable chart with the release name `my-release`:
-
-```console
-helm repo add balloon-unstable https://gyselroth.github.io/balloon-helm/unstable
-helm install my-release balloon-unstable/balloon --namespace mynamespace
-```
 
 ## Release new charts
 
