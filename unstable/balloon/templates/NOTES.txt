@@ -14,8 +14,11 @@ To learn more about the release, try:
   $ helm status {{ .Release.Name }}
   $ helm get all {{ .Release.Name }}
 
+
+NOTE: It may take a few minutes to bootstrap all components.
+
 {{ if .Values.ingress.enabled }}
-balloon is now reachable using one of:
+balloon is now reachable using:
 {{- range .Values.ingress.hosts }}
   {{- if .tls }}
 * https://{{ .name }}
