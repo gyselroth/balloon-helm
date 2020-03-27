@@ -1,20 +1,17 @@
-{{- if .Values.ingress.enabled -}}
+{{- if and .Values.ingress.enabled (index .Values "balloon-proxy" "enabled") -}}
 {{- $fullName := include "balloon.fullname" . -}}
 {{- $releaseName := .Release.Name -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-api
   labels:
     app.kubernetes.io/name: {{ include "balloon.name" . }}
     helm.sh/chart: {{ include "balloon.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  annotations:
-    nginx.ingress.kubernetes.io/affinity: cookie
-    nginx.ingress.kubernetes.io/session-cookie-name: sticky-loolwsd
-    nginx.ingress.kubernetes.io/session-cookie-path: /libreoffice
   {{- with .Values.ingress.annotations }}
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
@@ -31,13 +28,6 @@ spec:
     - host: {{ .name }}
       http:
         paths:
-        {{- if index $.Values "balloon-web" "enabled" }}
-        - path: "/"
-          backend:
-            serviceName: {{ $fullName }}-balloob-web
-            servicePort: http
-        {{- end }}
-        {{- if index $.Values "balloon-proxy" "enabled" }}
         - path: "/api"
           backend:
             serviceName: {{ $fullName }}-balloon-proxy
@@ -58,12 +48,5 @@ spec:
           backend:
             serviceName: {{ $fullName }}-balloon-proxy
             servicePort: http
-        {{- end }}
-        {{- if index $.Values "lool-collab" "enabled" }}
-        - path: "/libreoffice"
-          backend:
-            serviceName: {{ $fullName }}-lool-collab
-            servicePort: http
-        {{- end }}
   {{- end }}
 {{- end }}

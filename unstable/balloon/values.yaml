@@ -21,6 +21,8 @@ elasticsearch:
 
 clamav: 
   enabled: true
+  image:
+    tag: "1.7"
   kubeMeta:
     deploymentApiVersion: apps/v1
 
@@ -60,10 +62,8 @@ elasticsearch:
     - ingest-attachment
 
 ingress:
-  enabled: true
+  enabled: false
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
   hosts: 
   - name: "balloon.local"
     #tls:

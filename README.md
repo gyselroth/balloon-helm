@@ -43,6 +43,7 @@ Example deployment with ingress/tls enabled and 200GB MongoDB/Elasticsearch stor
 
 ```console
 helm install my-release balloon-stable/balloon --namespace mynamespace \
+    --set ingress.enabled=1 \
     --set ingress.hosts[0].name=balloon-api.local \
     --set ingress.hosts[0].tls.secretName=tls-balloon-api.local \
     --set balloon-api.url=https://balloon-api.local \
@@ -75,6 +76,7 @@ If you want to test balloon on a testing k8s cluster which might not have suppor
 
 ```console
 helm install my-release balloon-stable/balloon --namespace mynamespace \
+    --set ingress.enabled=1 \
     --set elasticsearch.data.persistence.enabled=0 \
     --set elasticsearch.master.persistence.enabled=0 \
     --set mongodb.persistentVolume.enabled=0
