@@ -10,11 +10,8 @@ metadata:
     helm.sh/chart: {{ include "balloon.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  annotations:
-    nginx.ingress.kubernetes.io/affinity: cookie
-    nginx.ingress.kubernetes.io/session-cookie-name: sticky-loolwsd
-    nginx.ingress.kubernetes.io/session-cookie-path: /libreoffice
   {{- with .Values.ingress.annotations }}
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
