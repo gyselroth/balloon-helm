@@ -2,7 +2,7 @@ apiVersion: v2
 name: balloon
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 1.0.3
+version: 1.0.4
 appVersion: master
 keywords:
 - balloon
@@ -49,7 +49,7 @@ dependencies:
   version: 1.0.3
   condition: balloon-web.enabled
 - name: balloon-proxy
-  version: 1.0.0
+  version: 1.0.1
   condition: balloon-proxy.enabled  
 - name: browserless-chrome
   version: 1.0.1

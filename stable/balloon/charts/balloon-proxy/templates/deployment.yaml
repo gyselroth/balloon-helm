@@ -33,10 +33,6 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: http
           volumeMounts:
           - mountPath: /etc/nginx/conf.d
             name: nginx
