@@ -18,6 +18,9 @@ mongodb:
 
 elasticsearch:
   enabled: true
+  cluster:
+    plugins:
+      - ingest-attachment
 
 clamav: 
   enabled: true
@@ -54,12 +57,6 @@ lool-convert:
   replicaCount: 1
   livenessProbe:
     initialDelaySeconds: 120
-
-elasticsearch:
-  enabled: true
-  cluster:
-    plugins:
-    - ingest-attachment
 
 ingress:
   enabled: false

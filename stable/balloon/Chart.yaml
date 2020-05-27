@@ -29,7 +29,7 @@ dependencies:
 - name: collabora-code
   version: 1.0.5
   repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: ballon.preview.enabled
+  condition: balloon.preview.enabled
   alias: lool-convert
 - name: collabora-code
   version: 1.0.5
@@ -37,17 +37,17 @@ dependencies:
   condition: libreoffice.enabled
   alias: lool-collab
 - name: balloon-mongodb-metrics
-  version: 0.0.3
+  version: 1.0.0
   condition: balloon-mongodb-metrics.enabled
 - name: balloon-jobs
-  version: 0.1.9
+  version: 1.0.0
   condition: balloon-jobs.enabled
 - name: balloon-api
-  version: 0.1.12
+  version: 1.0.0
   condition: balloon-api.enabled
 - name: balloon-web
-  version: 0.2.4
+  version: 1.0.0
   condition: balloon-web.enabled
 - name: balloon-proxy
-  version: 0.2.2
+  version: 1.0.0
   condition: balloon-proxy.enabled  

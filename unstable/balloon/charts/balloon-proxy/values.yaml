@@ -44,7 +44,7 @@ service:
 # priorityClassName: {}
 
 livenessProbe:
-  enabled: true
+  enabled: false
   initialDelaySeconds: 5
   periodSeconds: 5
   timeoutSeconds: 5

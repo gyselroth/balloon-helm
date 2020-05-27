@@ -29,7 +29,7 @@ dependencies:
 - name: collabora-code
   version: 1.0.6
   repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: ballon.preview.enabled
+  condition: balloon.preview.enabled
   alias: lool-convert
 - name: collabora-code
   version: 1.0.6
@@ -52,5 +52,5 @@ dependencies:
   version: 1.0.0
   condition: balloon-proxy.enabled  
 - name: browserless-chrome
-  version: 1.0.0
+  version: 1.0.1
   condition: bowserless-chrome.enabled  
