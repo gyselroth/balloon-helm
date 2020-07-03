@@ -86,13 +86,19 @@ spec:
           volumeMounts:
           - mountPath: /etc/balloon
             name: config-volume
+          {{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 10 }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
       - configMap:
           defaultMode: 420
           name: {{ .Release.Name }}-balloon-config
-        name: config-volume            
+        name: config-volume
+      {{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 6 }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

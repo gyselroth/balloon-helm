@@ -88,7 +88,7 @@ The following table lists the configurable parameters of the balloon sub charts 
 
 (Note: Only the configuration for the balloon server sub chart is documented so far)
 
-
+### balloon-api
 | Parameter                           | Description                                                               | Default                                             |
 | ----------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------- |
 | `balloon-api.replicaCount`              | Number of replicas in the replica set                                     | `2`                                                 |
@@ -102,10 +102,18 @@ The following table lists the configurable parameters of the balloon sub charts 
 | `balloon-api.service.port`              | Service Port (balloon < v3 is executed using PHP-FPM)                     | `9000`                                              |
 | `balloon-api.extraLabels`               | Extra labels                                                              | `{}`                                                |
 | `balloon-api.extraVars`                 | Extra env variables                                                       | `{}`                                                |
+| `balloon-api.extraVolumeMounts`         | Extra volume mounts                                                       | `{}`                                                |
+| `balloon-api.extraVolumes`              | Extra volumes                                                             | `{}`                                                |
 | `balloon-api.nodeSelector`              | Custom node selector                                                      | `""`                                                |
 | `balloon-api.tolerations`               | Tolerations                                                               | `[]`                                                |
 | `balloon-api.resources`                 | Pod resource requests and limits                                          | `{}`                                                |
 | `balloon-api.affinity`                  | Affinitiy                                                                 | `{}`                                                |
+
+### balloon-web
+| Parameter                           | Description                                                               | Default                                             |
+| ----------------------------------- | ------------------------------------------------------------------------- | --------------------------------------------------- |
+| `balloon-web.extraVolumeMounts`         | Extra volume mounts                                                       | `{}`                                                |
+| `balloon-web.extraVolumes`              | Extra volumes                                                             | `{}`                                                |
 
 
 ## Release new charts

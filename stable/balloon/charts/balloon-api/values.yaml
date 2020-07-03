@@ -72,6 +72,10 @@ extraLabels: {}
 
 extraVars: {}
 
+extraVolumeMounts: []
+
+extraVolumes: []
+
 nodeSelector: {}
 
 tolerations: []
