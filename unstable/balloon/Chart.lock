@@ -1,19 +1,19 @@
 dependencies:
-- name: mongodb-replicaset
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 3.11.4
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.10.2
 - name: elasticsearch
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.32.2
+  repository: https://charts.bitnami.com/bitnami
+  version: 14.5.0
 - name: clamav
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.0.5
+  repository: https://wiremind.github.com/wiremind-helm-charts
+  version: 1.1.0
 - name: collabora-code
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.0.6
+  repository: https://chrisingenhaag.github.io/helm/
+  version: 2.0.0
 - name: collabora-code
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 1.0.6
+  repository: https://chrisingenhaag.github.io/helm/
+  version: 2.0.0
 - name: balloon-mongodb-metrics
   repository: ""
   version: 1.0.0
@@ -28,9 +28,9 @@ dependencies:
   version: 1.0.3
 - name: balloon-proxy
   repository: ""
-  version: 1.0.0
+  version: 1.0.1
 - name: browserless-chrome
   repository: ""
-  version: 1.0.0
-digest: sha256:a6472bb71311bce6bbd5bda65533774871ca62752bd8280771550ce6a1c3c1de
-generated: "2020-03-26T16:07:59.692503078+01:00"
+  version: 1.0.2
+digest: sha256:aa423092e6627ad8038b0642a9716751e207dcb5caf9258d956f30c5538c4915
+generated: "2021-03-16T10:14:04.869631+01:00"
