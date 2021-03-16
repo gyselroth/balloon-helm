@@ -2,55 +2,55 @@ apiVersion: v2
 name: balloon
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 1.0.4
+version: 1.1.0
 appVersion: master
 keywords:
-- balloon
+  - balloon
 home: https://github.com/gyselroth/balloon
 sources:
-- https://github.com/gyselroth/balloon-helm
+  - https://github.com/gyselroth/balloon-helm
 maintainers:
-- name: Raffael Sahli
-  email: sahli@gyselroth.com
+  - name: Raffael Sahli
+    email: sahli@gyselroth.com
 dependencies:
-- name: mongodb-replicaset
-  version: 3.11.4
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: mongodb.enabled
-  alias: mongodb
-- name: elasticsearch
-  version: 1.32.2
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: elasticsearch.enabled
-- name: clamav
-  version: 1.0.5
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: clamav.enabled
-- name: collabora-code
-  version: 1.0.5
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: balloon.preview.enabled
-  alias: lool-convert
-- name: collabora-code
-  version: 1.0.5
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: libreoffice.enabled
-  alias: lool-collab
-- name: balloon-mongodb-metrics
-  version: 1.0.0
-  condition: balloon-mongodb-metrics.enabled
-- name: balloon-jobs
-  version: 1.0.0
-  condition: balloon-jobs.enabled
-- name: balloon-api
-  version: 1.0.1
-  condition: balloon-api.enabled
-- name: balloon-web
-  version: 1.0.1
-  condition: balloon-web.enabled
-- name: balloon-proxy
-  version: 1.0.1
-  condition: balloon-proxy.enabled  
-- name: browserless-chrome
-  version: 1.0.0
-  condition: bowserless-chrome.enabled
+  - name: mongodb
+    version: 10.10.2
+    repository: https://charts.bitnami.com/bitnami
+    condition: mongodb.enabled
+    alias: mongodb
+  - name: elasticsearch
+    version: 14.5.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: elasticsearch.enabled
+  - name: clamav
+    version: 1.1.0
+    repository: https://wiremind.github.com/wiremind-helm-charts
+    condition: clamav.enabled
+  - name: collabora-code
+    version: 2.0.0
+    repository: https://chrisingenhaag.github.io/helm/
+    condition: balloon.preview.enabled
+    alias: lool-convert
+  - name: collabora-code
+    version: 2.0.0
+    repository: https://chrisingenhaag.github.io/helm/
+    condition: libreoffice.enabled
+    alias: lool-collab
+  - name: balloon-mongodb-metrics
+    version: 1.0.0
+    condition: balloon-mongodb-metrics.enabled
+  - name: balloon-jobs
+    version: 1.0.0
+    condition: balloon-jobs.enabled
+  - name: balloon-api
+    version: 1.0.1
+    condition: balloon-api.enabled
+  - name: balloon-web
+    version: 1.0.1
+    condition: balloon-web.enabled
+  - name: balloon-proxy
+    version: 1.0.1
+    condition: balloon-proxy.enabled
+  - name: browserless-chrome
+    version: 1.0.1
+    condition: bowserless-chrome.enabled

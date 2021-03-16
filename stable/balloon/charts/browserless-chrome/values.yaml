@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: browserless/chrome
-  tag: 1.17-chrome-stable
+  tag: 1.44-chrome-stable
   pullPolicy: IfNotPresent
 
 nameOverride: ""
