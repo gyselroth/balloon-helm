@@ -3,7 +3,7 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: "2022-08-30T11:33:30.39661+02:00"
+    created: "2022-08-30T14:55:48.885874+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -54,7 +54,7 @@ entries:
       version: 1.0.2
     description: High performance, feature rich document management system written
       for the cloud
-    digest: 82fef297ce509296375f0d4136aa1c432f057021fecb26bec5af4a510b478463
+    digest: 894a16c61b5ef6b70885faa18c88b0ba40651a57e40b30fdfc7ee40784456eaa
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -66,6 +66,6 @@ entries:
     - https://github.com/gyselroth/balloon-helm
     type: application
     urls:
-    - balloon-1.2.1.tgz
-    version: 1.2.1
-generated: "2022-08-30T11:33:30.383945+02:00"
+    - balloon-1.2.2.tgz
+    version: 1.2.2
+generated: "2022-08-30T14:55:48.869182+02:00"

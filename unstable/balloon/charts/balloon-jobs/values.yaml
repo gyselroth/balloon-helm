@@ -43,7 +43,8 @@ services:
 nameOverride: ""
 fullnameOverride: ""
 
-mongodbURI: null
+mongodb:
+  uri: null
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
