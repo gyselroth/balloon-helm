@@ -2,7 +2,7 @@ apiVersion: v2
 name: balloon
 description: High performance, feature rich document management system written for the cloud
 type: application
-version: 1.1.0
+version: 1.2.0
 appVersion: master
 keywords:
   - balloon
@@ -14,7 +14,7 @@ maintainers:
     email: sahli@gyselroth.com
 dependencies:
   - name: mongodb
-    version: 10.10.2
+    version: 10.10.3 # 4.4.4
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
     alias: mongodb

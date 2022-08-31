@@ -2,11 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: gyselroth/balloon
+  tag: 2.7.3
   pullPolicy: IfNotPresent
+
+url: "https://balloon.local"
 
 hpa:
   enabled: false
@@ -40,33 +43,14 @@ services:
     enabled: true
     browserlessUri: null
 
-nameOverride: ""
-fullnameOverride: ""
-
 mongodb:
   uri: null
 
-resources:
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+nameOverride: ""
+fullnameOverride: ""
 
-extraLabels: {}
-
-extraVars: {}
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
+## priorityClassName
+# priorityClassName: {}
 
 securityContext:
   enabled: true
@@ -77,3 +61,25 @@ securityContext:
   runAsGroup: 1000
   runAsNonRoot: true
   runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+#   memory: 128Mi
+
+extraLabels: {}
+
+extraVars: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
