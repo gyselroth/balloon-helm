@@ -67,7 +67,7 @@ spec:
               value: http://{{ .Release.Name }}-browserless-chrome:3000
             {{- end }}
 {{- if .Values.extraVars }}
-{{ toYaml .Values.extraVars | indent 10 }}
+{{ toYaml .Values.extraVars | indent 12 }}
 {{- end }}
           volumeMounts:
             - mountPath: /etc/balloon
