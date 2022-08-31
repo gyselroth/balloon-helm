@@ -33,39 +33,39 @@ spec:
           - ballooncli
           - jobs
           - -vvvv
-          env:            
-          - name: BALLOON_CLAMAV_URI
-          {{- if .Values.services.clamav.uri }}
+          env:
+            - name: BALLOON_CLAMAV_URI
+            {{- if .Values.services.clamav.uri }}
             value: {{ .Values.services.clamav.uri }}
-          {{- else }}
+            {{- else }}
             value: tcp://{{ .Release.Name }}-clamav:3310
-          {{- end }}
-          - name: BALLOON_LIBREOFFICE_CONVERT_URL
-          {{- if .Values.services.libreofficePreview.uri }}
+            {{- end }}
+            - name: BALLOON_LIBREOFFICE_CONVERT_URL
+            {{- if .Values.services.libreofficePreview.uri }}
             value: {{ .Values.services.libreofficePreview.uri }}
-          {{- else }}
+            {{- else }}
             value: http://{{ .Release.Name }}-lool-convert:9980
-          {{- end }}
-          - name: BALLOON_ELASTICSEARCH_URI
-          {{- if .Values.services.elasticsearch.uri }}
+            {{- end }}
+            - name: BALLOON_ELASTICSEARCH_URI
+            {{- if .Values.services.elasticsearch.uri }}
             value: {{ .Values.services.elasticsearch.uri }}
-          {{- else }}
+            {{- else }}
             value: http://{{ .Release.Name }}-elasticsearch-client:9200
-          {{- end }}
-          - name: BALLOON_MONGODB_URI
-          {{- if .Values.mongodb.uri }}
+            {{- end }}
+            - name: BALLOON_MONGODB_URI
+            {{- if .Values.mongodb.uri }}
             value: {{ .Values.mongodb.uri }}
-          {{- else }}
+            {{- else }}
             value: mongodb://{{ .Release.Name }}-mongodb-0.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-1.{{ .Release.Name }}-mongodb:27017,{{ .Release.Name }}-mongodb-2.{{ .Release.Name }}-mongodb:27017
-          {{- end }}
-          - name: BALLOON_URL
+            {{- end }}
+            - name: BALLOON_URL
             value: {{ .Values.url }}
-          - name: BALLOON_BURL_BROWSERLESS_URL
-          {{- if .Values.services.burl.browserlessUri }}
+            - name: BALLOON_BURL_BROWSERLESS_URL
+            {{- if .Values.services.burl.browserlessUri }}
             value: {{ .Values.services.burl.browserlessURI }}
-          {{- else }}
+            {{- else }}
             value: http://{{ .Release.Name }}-browserless-chrome:3000
-          {{- end }}
+            {{- end }}
 {{- if .Values.extraVars }}
 {{ toYaml .Values.extraVars | indent 10 }}
 {{- end }}          
