@@ -3,7 +3,74 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.452866+02:00"
+    created: "2022-10-17T07:33:29.807188+02:00"
+    dependencies:
+    - alias: mongodb
+      condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.5.0
+    - condition: clamav.enabled
+      name: clamav
+      repository: https://wiremind.github.com/wiremind-helm-charts
+      version: 1.1.0
+    - alias: lool-convert
+      condition: balloon.preview.enabled
+      name: collabora-code
+      repository: https://chrisingenhaag.github.io/helm/
+      version: 2.0.0
+    - alias: lool-collab
+      condition: libreoffice.enabled
+      name: collabora-code
+      repository: https://chrisingenhaag.github.io/helm/
+      version: 2.0.0
+    - condition: balloon-mongodb-metrics.enabled
+      name: balloon-mongodb-metrics
+      repository: ""
+      version: 1.0.0
+    - condition: balloon-jobs.enabled
+      name: balloon-jobs
+      repository: ""
+      version: 1.0.0
+    - condition: balloon-api.enabled
+      name: balloon-api
+      repository: ""
+      version: 1.0.1
+    - condition: balloon-web.enabled
+      name: balloon-web
+      repository: ""
+      version: 1.0.1
+    - condition: balloon-proxy.enabled
+      name: balloon-proxy
+      repository: ""
+      version: 1.0.1
+    - condition: bowserless-chrome.enabled
+      name: browserless-chrome
+      repository: ""
+      version: 1.0.1
+    description: High performance, feature rich document management system written
+      for the cloud
+    digest: 136424912a7aabadd7a7dea8f7f99bd4e788ee9060d5cdfa45e3f6b2c8ec6633
+    home: https://github.com/gyselroth/balloon
+    keywords:
+    - balloon
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: balloon
+    sources:
+    - https://github.com/gyselroth/balloon-helm
+    type: application
+    urls:
+    - balloon-1.2.10.tgz
+    version: 1.2.10
+  - apiVersion: v2
+    appVersion: master
+    created: "2022-10-17T07:33:29.972868+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -70,7 +137,7 @@ entries:
     version: 1.2.9
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.441977+02:00"
+    created: "2022-10-17T07:33:29.949296+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -137,7 +204,7 @@ entries:
     version: 1.2.8
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.43117+02:00"
+    created: "2022-10-17T07:33:29.923244+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -204,7 +271,7 @@ entries:
     version: 1.2.7
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.420423+02:00"
+    created: "2022-10-17T07:33:29.894811+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -271,7 +338,7 @@ entries:
     version: 1.2.6
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.407894+02:00"
+    created: "2022-10-17T07:33:29.878942+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -338,7 +405,7 @@ entries:
     version: 1.2.5
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.397188+02:00"
+    created: "2022-10-17T07:33:29.864253+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -405,7 +472,7 @@ entries:
     version: 1.2.4
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.386581+02:00"
+    created: "2022-10-17T07:33:29.841236+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -472,7 +539,7 @@ entries:
     version: 1.2.3
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.375783+02:00"
+    created: "2022-10-17T07:33:29.824391+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -539,7 +606,7 @@ entries:
     version: 1.2.2
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.364926+02:00"
+    created: "2022-10-17T07:33:29.788379+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -606,7 +673,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.35312+02:00"
+    created: "2022-10-17T07:33:29.776274+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -673,7 +740,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.338116+02:00"
+    created: "2022-10-17T07:33:29.76381+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -740,7 +807,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.325073+02:00"
+    created: "2022-10-17T07:33:29.750674+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -807,7 +874,7 @@ entries:
     version: 1.0.4
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.318984+02:00"
+    created: "2022-10-17T07:33:29.742245+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -874,7 +941,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.31394+02:00"
+    created: "2022-10-17T07:33:29.734615+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -941,7 +1008,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.308269+02:00"
+    created: "2022-10-17T07:33:29.726508+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -1004,7 +1071,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.303215+02:00"
+    created: "2022-10-17T07:33:29.719882+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -1067,7 +1134,7 @@ entries:
     version: 1.0.0
   - apiVersion: v1
     appVersion: master
-    created: "2022-09-05T15:29:46.295728+02:00"
+    created: "2022-10-17T07:33:29.712515+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1109,7 +1176,7 @@ entries:
     version: 0.2.7
   - apiVersion: v1
     appVersion: master
-    created: "2022-09-05T15:29:46.290268+02:00"
+    created: "2022-10-17T07:33:29.703761+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1151,7 +1218,7 @@ entries:
     version: 0.2.6
   - apiVersion: v1
     appVersion: master
-    created: "2022-09-05T15:29:46.285483+02:00"
+    created: "2022-10-17T07:33:29.697733+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1193,7 +1260,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: master
-    created: "2022-09-05T15:29:46.278931+02:00"
+    created: "2022-10-17T07:33:29.691091+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1235,7 +1302,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: master
-    created: "2022-09-05T15:29:46.27344+02:00"
+    created: "2022-10-17T07:33:29.684227+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1277,7 +1344,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.267008+02:00"
+    created: "2022-10-17T07:33:29.677725+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1319,7 +1386,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.260052+02:00"
+    created: "2022-10-17T07:33:29.670629+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1361,7 +1428,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: master
-    created: "2022-09-05T15:29:46.247777+02:00"
+    created: "2022-10-17T07:33:29.659064+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.install
@@ -1401,4 +1468,4 @@ entries:
     urls:
     - balloon-0.2.0.tgz
     version: 0.2.0
-generated: "2022-09-05T15:29:46.237418+02:00"
+generated: "2022-10-17T07:33:29.648057+02:00"
