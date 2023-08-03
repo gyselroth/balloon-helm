@@ -23,7 +23,7 @@ spec:
       labels:
         app.kubernetes.io/managed-by: {{.Release.Service | quote }}
         app.kubernetes.io/instance: {{.Release.Name | quote }}
-        helm.sh/chart: "{{.Chart.Name}}-{{.Chart.Version}}"    
+        helm.sh/chart: "{{.Chart.Name}}-{{.Chart.Version}}"
 {{- if .Values.extraLabels }}
 {{ toYaml .Values.extraLabels | indent 8 }}
 {{- end }}
@@ -33,7 +33,7 @@ spec:
       - name: wait-for-mongodb
         image: jwilder/dockerize
         command:
-        - dockerize 
+        - dockerize
         - -timeout
         - 120s
         {{- if .Values.services.elasticsearch.uri }}
@@ -49,7 +49,7 @@ spec:
       containers:
       - name: balloon-api
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-        command: 
+        command:
         - ballooncli
         - upgrade
         - -vvvv
@@ -97,10 +97,10 @@ spec:
 {{- end }}
         volumeMounts:
         - mountPath: /etc/balloon
-          name: config-volume        
+          name: config-volume
       volumes:
       - configMap:
           defaultMode: 420
           name: {{ .Release.Name }}-balloon-config
-        name: config-volume        
+        name: config-volume
   backoffLimit: 4
