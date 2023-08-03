@@ -1,7 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "balloon.fullname" . -}}
 {{- $releaseName := .Release.Name -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
@@ -25,45 +25,66 @@ spec:
     - {{ .name }}
     secretName: {{ .tls.secretName }}
 {{- end }}
-{{- end }}  
+{{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}    
+  {{- range .Values.ingress.hosts }}
     - host: {{ .name }}
       http:
         paths:
         {{- if index $.Values "balloon-web" "enabled" }}
         - path: "/"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloob-web
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloob-web
+              port:
+                name: http
         {{- end }}
         {{- if index $.Values "balloon-proxy" "enabled" }}
         - path: "/api"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/openapi"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/share"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/wopi"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/webdav"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         {{- end }}
         {{- if index $.Values "lool-collab" "enabled" }}
         - path: "/libreoffice"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-lool-collab
-            servicePort: http
+            service:
+              name: {{ $fullName }}-lool-collab
+              port:
+                name: http
         {{- end }}
   {{- end }}
 {{- end }}

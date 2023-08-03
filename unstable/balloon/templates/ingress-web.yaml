@@ -1,7 +1,7 @@
 {{- if and .Values.ingress.enabled (index .Values "balloon-web" "enabled") -}}
 {{- $fullName := include "balloon.fullname" . -}}
 {{- $releaseName := .Release.Name -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-web
@@ -22,15 +22,18 @@ spec:
     - {{ .name }}
     secretName: {{ .tls.secretName }}
 {{- end }}
-{{- end }}  
+{{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}    
+  {{- range .Values.ingress.hosts }}
     - host: {{ .name }}
       http:
         paths:
         - path: "/"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-web
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-web
+              port:
+                name: http
   {{- end }}
 {{- end }}

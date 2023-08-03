@@ -1,7 +1,7 @@
 {{- if and .Values.ingress.enabled (index .Values "balloon-proxy" "enabled") -}}
 {{- $fullName := include "balloon.fullname" . -}}
 {{- $releaseName := .Release.Name -}}
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}-api
@@ -22,31 +22,46 @@ spec:
     - {{ .name }}
     secretName: {{ .tls.secretName }}
 {{- end }}
-{{- end }}  
+{{- end }}
   rules:
-  {{- range .Values.ingress.hosts }}    
+  {{- range .Values.ingress.hosts }}
     - host: {{ .name }}
       http:
         paths:
         - path: "/api"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/openapi"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/share"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/wopi"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
         - path: "/webdav"
+          pathType: Prefix
           backend:
-            serviceName: {{ $fullName }}-balloon-proxy
-            servicePort: http
+            service:
+              name: {{ $fullName }}-balloon-proxy
+              port:
+                name: http
   {{- end }}
 {{- end }}
