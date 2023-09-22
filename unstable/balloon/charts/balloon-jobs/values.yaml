@@ -43,6 +43,11 @@ services:
     enabled: true
     browserlessUri: null
 
+command:
+  - ballooncli
+  - jobs
+  - -vvvv
+
 mongodb:
   uri: null
 
