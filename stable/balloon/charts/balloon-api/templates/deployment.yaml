@@ -72,7 +72,7 @@ spec:
               value: {{ .Values.url }}
             - name: BALLOON_BURL_BROWSERLESS_URL
             {{- if .Values.services.burl.browserlessUri }}
-             value: {{ .Values.services.burl.browserlessURI }}
+              value: {{ .Values.services.burl.browserlessURI }}
             {{- else }}
               value: http://{{ .Release.Name }}-browserless-chrome:3000
             {{- end }}
