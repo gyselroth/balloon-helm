@@ -3,7 +3,7 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: "2024-03-25T16:46:29.123296+01:00"
+    created: "2024-05-14T15:49:54.301779+02:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -54,7 +54,7 @@ entries:
       version: 1.0.1
     description: High performance, feature rich document management system written
       for the cloud
-    digest: ace40de18f426b1a730a238770b9b873652966fd695def0b940c4dcd423d1cca
+    digest: 53e7d331c0f7a6444a8a36c87eaef383d46ed53ae8ef3524b320b1e3a83eaa9a
     home: https://github.com/gyselroth/balloon
     keywords:
     - balloon
@@ -66,73 +66,6 @@ entries:
     - https://github.com/gyselroth/balloon-helm
     type: application
     urls:
-    - balloon-1.2.23.tgz
-    version: 1.2.23
-  - apiVersion: v2
-    appVersion: master
-    created: "2024-03-25T16:46:29.112753+01:00"
-    dependencies:
-    - alias: mongodb
-      condition: mongodb.enabled
-      name: mongodb
-      repository: https://charts.bitnami.com/bitnami
-      version: 10.10.3
-    - condition: elasticsearch.enabled
-      name: elasticsearch
-      repository: https://charts.bitnami.com/bitnami
-      version: 14.5.0
-    - condition: clamav.enabled
-      name: clamav
-      repository: https://wiremind.github.com/wiremind-helm-charts
-      version: 1.1.0
-    - alias: lool-convert
-      condition: balloon.preview.enabled
-      name: collabora-code
-      repository: https://chrisingenhaag.github.io/helm/
-      version: 2.0.0
-    - alias: lool-collab
-      condition: libreoffice.enabled
-      name: collabora-code
-      repository: https://chrisingenhaag.github.io/helm/
-      version: 2.0.0
-    - condition: balloon-mongodb-metrics.enabled
-      name: balloon-mongodb-metrics
-      repository: ""
-      version: 1.0.0
-    - condition: balloon-jobs.enabled
-      name: balloon-jobs
-      repository: ""
-      version: 1.0.0
-    - condition: balloon-api.enabled
-      name: balloon-api
-      repository: ""
-      version: 1.0.1
-    - condition: balloon-web.enabled
-      name: balloon-web
-      repository: ""
-      version: 1.0.1
-    - condition: balloon-proxy.enabled
-      name: balloon-proxy
-      repository: ""
-      version: 1.0.1
-    - condition: bowserless-chrome.enabled
-      name: browserless-chrome
-      repository: ""
-      version: 1.0.1
-    description: High performance, feature rich document management system written
-      for the cloud
-    digest: ed3ed49ead51b98e638b4b2ec4fa0f361f908c79caf4b65515948c9e6eb546cf
-    home: https://github.com/gyselroth/balloon
-    keywords:
-    - balloon
-    maintainers:
-    - email: sahli@gyselroth.com
-      name: Raffael Sahli
-    name: balloon
-    sources:
-    - https://github.com/gyselroth/balloon-helm
-    type: application
-    urls:
-    - balloon-1.2.22.tgz
-    version: 1.2.22
-generated: "2024-03-25T16:46:29.099004+01:00"
+    - balloon-1.2.24.tgz
+    version: 1.2.24
+generated: "2024-05-14T15:49:54.28507+02:00"
