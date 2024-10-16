@@ -2,8 +2,8 @@ apiVersion: v2
 name: balloon-jobs
 description: balloon jobs runner
 type: application
-version: 1.0.24
-appVersion: 2.7.6
+version: 1.0.25
+appVersion: 2.7.7-beta1
 keywords:
 - balloon
 home: https://github.com/gyselroth/balloon
