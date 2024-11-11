@@ -3,7 +3,74 @@ entries:
   balloon:
   - apiVersion: v2
     appVersion: master
-    created: "2024-11-06T17:56:21.219687+01:00"
+    created: "2024-11-11T13:32:46.316298+01:00"
+    dependencies:
+    - alias: mongodb
+      condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.10.3
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.5.0
+    - condition: clamav.enabled
+      name: clamav
+      repository: https://wiremind.github.com/wiremind-helm-charts
+      version: 1.1.0
+    - alias: lool-convert
+      condition: balloon.preview.enabled
+      name: collabora-code
+      repository: https://chrisingenhaag.github.io/helm/
+      version: 2.0.0
+    - alias: lool-collab
+      condition: libreoffice.enabled
+      name: collabora-code
+      repository: https://chrisingenhaag.github.io/helm/
+      version: 2.0.0
+    - condition: balloon-mongodb-metrics.enabled
+      name: balloon-mongodb-metrics
+      repository: ""
+      version: 1.0.0
+    - condition: balloon-jobs.enabled
+      name: balloon-jobs
+      repository: ""
+      version: 1.0.0
+    - condition: balloon-api.enabled
+      name: balloon-api
+      repository: ""
+      version: 1.0.1
+    - condition: balloon-web.enabled
+      name: balloon-web
+      repository: ""
+      version: 1.0.1
+    - condition: balloon-proxy.enabled
+      name: balloon-proxy
+      repository: ""
+      version: 1.0.1
+    - condition: bowserless-chrome.enabled
+      name: browserless-chrome
+      repository: ""
+      version: 1.0.1
+    description: High performance, feature rich document management system written
+      for the cloud
+    digest: 19a190d470d243cd22e692738f93781107551276a0371b6de7da04ba4eef1807
+    home: https://github.com/gyselroth/balloon
+    keywords:
+    - balloon
+    maintainers:
+    - email: sahli@gyselroth.com
+      name: Raffael Sahli
+    name: balloon
+    sources:
+    - https://github.com/gyselroth/balloon-helm
+    type: application
+    urls:
+    - balloon-1.2.29.tgz
+    version: 1.2.29
+  - apiVersion: v2
+    appVersion: master
+    created: "2024-11-11T13:32:46.305721+01:00"
     dependencies:
     - alias: mongodb
       condition: mongodb.enabled
@@ -68,4 +135,4 @@ entries:
     urls:
     - balloon-1.2.28.tgz
     version: 1.2.28
-generated: "2024-11-06T17:56:21.206521+01:00"
+generated: "2024-11-11T13:32:46.290164+01:00"
